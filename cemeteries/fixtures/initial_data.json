@@ -1,0 +1,210 @@
+[
+    {
+    "model": "cemeteries.cemetery",
+    "pk": 1,
+    "fields": {
+        "name": "Timberidge",
+        "description": "A cemetery."
+        }
+    },
+
+    {
+    "model": "cemeteries.marker",
+    "fields": {
+            "cemetery": 1,
+             "markerid": 6005,
+             "condition": "Good",
+             "readable": true,
+             "epitaph": "",
+             "family_name":"Poole"
+        }
+    },
+    {
+    "model": "cemeteries.marker",
+    "fields": {
+            "cemetery": 1,
+             "markerid": 6006,
+             "condition": "Good",
+             "readable": true,
+             "epitaph": "Their trials ended their rest is won",
+             "family_name":"Poole"
+        }
+    },
+    {
+    "model": "cemeteries.marker",
+    "fields": {
+            "cemetery": 1,
+             "markerid": 6007,
+             "condition": "Aged",
+             "readable": true,
+             "epitaph": "May the resurrection find thee in the boson of thy God",
+             "family_name":"Poole"
+        }
+    },
+    {
+    "model": "cemeteries.marker",
+    "fields": {
+            "cemetery": 1,
+             "markerid": 6027,
+             "condition": "Aged",
+             "readable": true,
+             "epitaph": "CO I 24 GA INF CSA",
+             "family_name":"Hawkins"
+        }
+    },
+    {
+    "model": "cemeteries.marker",
+    "fields": {
+            "cemetery": 1,
+             "markerid": 6028,
+             "condition": "Aged",
+             "readable": true,
+             "epitaph": "",
+             "family_name":"Pool"
+        }
+    },
+
+    {
+    "model": "cemeteries.person",
+    "pk": 1,
+    "fields": {
+            "markerid": 6005,
+            "full_name":"Grover Poole",
+            "first_name":"Grover",
+            "last_name": "Poole",
+            "gender":"male",
+            "veteran":"unknown",
+            "b_year":"1893",
+            "d_year":"1939",
+            "epitaph":"",
+            "footstone":false,
+            "footstoneI":""
+        }
+    },
+
+    {
+    "model": "cemeteries.person",
+    "pk":2,
+    "fields": {
+            "markerid":6006,
+            "full_name": "M Poole",
+            "first_name":"M",
+            "last_name": "Poole",
+            "gender": "Female",
+            "veteran": "unknown",
+            "b_year":"1876",
+            "d_year":"1932",
+            "epitaph":"",
+            "footstone":true,
+            "footstoneI": "MEP"
+        }
+    },
+
+        {
+    "model": "cemeteries.person",
+    "pk":3,
+    "fields": {
+            "markerid": 6006,
+            "full_name":"Alonzo Poole",
+            "first_name":"Alonzo",
+            "last_name":"Poole",
+            "gender":"Male",
+            "veteran":"unknown",
+            "b_year":"1870",
+            "d_year":"1935",
+            "epitaph":"",
+            "footstone":true,
+            "footstoneI":"ADP"
+        }
+    },
+
+        {
+    "model": "cemeteries.person",
+    "pk":4,
+    "fields": {
+            "markerid": 6007,
+            "full_name":"Clara Poole",
+            "first_name":"Clara",
+            "last_name":"Poole",
+            "gender":"Female",
+            "veteran":"unknown",
+            "b_year":"1848",
+            "d_year":"1927",
+            "epitaph":"Mother:Wife of William H H Poole",
+            "footstone":true,
+            "footstoneI":""
+        }
+    },
+
+        {
+    "model": "cemeteries.person",
+    "pk":5,
+    "fields": {
+            "markerid": 6007,
+            "full_name":"William Poole",
+            "first_name":"William",
+            "last_name":"Poole",
+            "gender":"Male",
+            "veteran":"unknown",
+            "b_year":"1842",
+            "d_year":"1917",
+            "epitaph":"",
+            "footstone":true,
+            "footstoneI":"WHHP"
+        }
+    },
+
+        {
+    "model": "cemeteries.person",
+    "pk":6,
+    "fields": {
+            "markerid": 6027,
+            "full_name":"Isaac Hawkins",
+            "first_name":"Isaac",
+            "last_name":"Hawkins",
+            "gender":"Male",
+            "veteran":"yes",
+            "b_year":"9999",
+            "d_year":"9999",
+            "epitaph":"",
+            "footstone":true,
+            "footstoneI":""
+        }
+    },
+
+            {
+    "model": "cemeteries.person",
+    "pk":7,
+    "fields": {
+            "markerid": 6028,
+            "full_name":"J Pool",
+            "first_name":"J",
+            "last_name":"Pool",
+            "gender":"unknown",
+            "veteran":"unknown",
+            "b_year":"1887",
+            "d_year":"1908",
+            "epitaph":"",
+            "footstone":true,
+            "footstoneI":"JCP"
+        }
+    },
+
+            {
+    "model": "cemeteries.person",
+    "pk":8,
+    "fields": {
+            "markerid": 6007,
+            "full_name":"J Pool",
+            "first_name":"J",
+            "last_name":"Pool",
+            "gender":"unknown",
+            "veteran":"unknown",
+            "b_year":"1867",
+            "d_year":"1897",
+            "epitaph":"",
+            "footstone":true,
+            "footstoneI":"WHHP"
+        }
+    }
+]
