@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Markers {% endblock %}
+
+
+{% block content %}
+<h1>Marker {{ object.markerid }}</h1>
+<p>Marker Id: {{ object.markerid }}</p>
+<p>Marker Condition: {{ object.condition }}</p>
+<p>Marker Readability: {{ object.readable }}</p>
+<p>Marker Epitaph: {{ object.epitaph }}</p>
+<p>Marker Family Name: {{ object.family_name }}</p>
+<p>Marker Cemetery : {{ object.cemetery }}</p>
+{% endblock %}
