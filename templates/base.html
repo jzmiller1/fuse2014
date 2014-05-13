@@ -48,10 +48,16 @@
                         </form>
             -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/accounts/register">Create Account</a></li>
-                <input type="text" class="input-small" placeholder="Email">
-                <input type="password" class="input-small" placeholder="Password">
-                <button type="submit" class="btn">Sign In</button>
+                {% if user.username %}
+                    <li><a href="/accounts/logout/">Log Out</a></li>
+                {% else %}
+                    <li><a href="/accounts/login/">Login</a></li>
+                    <li><a href="/accounts/register/">Register</a></li>
+                {% endif %}
+
+                {% if user.is_staff %}
+                    <li><a href="/admin/">Admin</a></li>
+                {% endif %}
             </ul>
 
             </li>
