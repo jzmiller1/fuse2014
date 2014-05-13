@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+
+
+{% block content %}
+<form class="container" method="post" action=".">{%  csrf_token %}
+      <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <h2 class="form-signin-heading span3float">Please Sign In</h2>
+          <div class="input-group">
+              <span class="input-group-addon glyphicon glyphicon glyphicon-user"></span>
+              <input type="text" class="form-control span3float" placeholder="Username"  autofocus id="id_username" name="username">
+          </div>
+
+          <div class="input-group">
+              <span class="input-group-addon glyphicon glyphicon glyphicon-lock"></span>
+            <input type="password" class="form-control span3float" placeholder="Password" id="id_password" name="password">
+          </div>
+
+         <button class="btn btn-lg btn-primary btn-block span3" type="submit">Sign in</button>
+
+        <label style="font-size: 12pt" class="checkbox span4">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+
+
+            {% if form.errors %}
+                {% for error, message in form.errors.items %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+
+        <center><a style="font-size: 12pt" class="span3" href='/accounts/register/'>Need An Account?</a></center>
+    </form>
+    </div>
+<div class="col-md-3"></div>
+</div>
+{% endblock %}

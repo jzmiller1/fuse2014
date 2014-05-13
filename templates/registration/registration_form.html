@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+      <div class="row">
+        <form class="container" method="post" action=".">{%  csrf_token %}
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+
+            <center><h2 class="form-signin-heading span3float">Please Register</h2></center>
+          <div class="input-group">
+              <span class="input-group-addon glyphicon glyphicon-envelope"></span>
+              <input type="email" class="form-control span3float" placeholder="Email" id="id_email" name="email" required>
+          </div>
+
+          <div class="input-group">
+              <span class="input-group-addon glyphicon glyphicon glyphicon-user"></span>
+              <input type="text" class="form-control span3float" placeholder="Username" autofocus id="id_username" name="username" required>
+          </div>
+
+          <div class="input-group">
+              <span class="input-group-addon glyphicon glyphicon glyphicon-lock"></span>
+            <input type="password" class="form-control span3float" placeholder="Password" id="id_password1" name="password1" required>
+          </div>
+
+          <div class="input-group">
+              <span class="input-group-addon glyphicon glyphicon glyphicon-lock"></span>
+            <input type="password" class="form-control span3float" placeholder="Password Again" id="id_password2" name="password2" required>
+          </div>
+
+            <button class="btn btn-lg btn-primary btn-block span3" type="submit">Register</button>
+
+            {% if form.errors %}
+                {% for error, message in form.errors.items %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+
+    </div>
+    <div class="col-md-3"></div>
+            </form>
+      </div>
+
+{% endblock %}
