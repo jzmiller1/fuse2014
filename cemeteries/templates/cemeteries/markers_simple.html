@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Markers{% endblock%}
+
+{% block content %}
+    <ul>
+    {% for marker in object_list %}
+    <li><a href="/marker/{{ marker.pk }}">{{ marker.markerid }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}

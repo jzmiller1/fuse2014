@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Person{% endblock%}
+{% block content %}
+    <font size="7">{{ object.full_name }}</font>
+    <font size="5" font face = "Comic Sans MS">
+        <p>Cemetery: {{ object.markerid.cemetery }}</p>
+        <p>Marker Id: {{ object.markerid.markerid }}</p>
+        <p>Gender: {{ object.gender }}</p>
+        <p>Veteran: {{ object.veteran }}</p>
+        <p>Birth Year: {{ object.b_year }}</p>
+        <p>Death Year: {{ object.d_year }}</p>
+        <p>Epitaph: {{ object.epitaph }}</p>
+        <p>Footstone: {{ object.footstone }}</p>
+        <p>Footstone Epitaph: {{ object.footstoneI }}</p>
+    </font>
+{% endblock %}
+</body>
+</html>
