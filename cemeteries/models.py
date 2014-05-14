@@ -65,3 +65,15 @@ class MarkerImage(models.Model):
 
     def __str__(self):
         return "{}".format(self.markerid)
+
+
+class Symbology(models.Model):
+    """ Symbology Model
+
+    """
+
+    symbology = models.CharField(max_length=40)
+    markers = models.ManyToManyField(Marker, blank=True)
+
+    def __str__(self):
+        return "{0}".format(self.symbology)

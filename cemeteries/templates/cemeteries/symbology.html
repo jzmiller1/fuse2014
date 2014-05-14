@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for symbology in object_list %}
+    <li><p>{{ symbology.symbology }}</p>
+   {% for marker in  symbology.markers.all %}
+       <p>{{ marker.markerid }}</p>
+       {% endfor %}
+
+    </li>
+{% endfor %}
+
+<h1>{{ symbology }}</h1>
+
+{% endblock %}

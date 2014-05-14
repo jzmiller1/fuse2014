@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from .views import MainView, CemeteryListView, CemeteryDetailView, MarkerListView,MarkerDetailView
-from .views import PersonListView, PersonDetailView,AboutView
-from .models import Cemetery, Marker, Person
+from .views import PersonListView, PersonDetailView,AboutView, SymbologyView
+from .models import Cemetery, Marker, Person, Symbology
 from django.contrib.auth.decorators import login_required
 
 
@@ -18,5 +18,6 @@ urlpatterns = patterns('',
     url(r'^marker/(?P<pk>\d+)/$', login_required(MarkerDetailView.as_view()),name='marker_dview'),
     url(r'^person/$', login_required(PersonListView.as_view(model=Person)), name='person_lview'),
     url(r'^person/(?P<pk>\d+)/$', login_required(PersonDetailView.as_view()), name='person_dview'),
+    url(r'^symbology/$', login_required(SymbologyView.as_view(model=Symbology)), name='symbology'),
 
 )

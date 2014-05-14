@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.core.urlresolvers import resolve, reverse
 from .views import MainView, CemeteryListView, CemeteryDetailView, MarkerListView, MarkerDetailView
-from .views import PersonListView, PersonDetailView, AboutView
+from .views import PersonListView, PersonDetailView, AboutView, SymbologyView
 
 # Create your tests here.
 from django.test import TestCase
@@ -47,6 +47,16 @@ class PersonTestCase(TestCase):
         self.assertEqual(person.__str__(), "FullName : Alonzo Poole, Markerid: 6006 - Timberidge Cemetery")
 
 
+class SymbologyTestCase(TestCase):
+    def setup(self):
+        pass
+
+    def test_symbology_string(self):
+        """Verifying __str__ returns the proper formatting"""
+        symbology = models.Symbology.objects.get(symbology="floral")
+        self.assertEqual(symbology.__str__(), "floral")
+
+
 class UrlTests(TestCase):
     """ Verifying that the urls use the correct view.
     """
@@ -89,3 +99,8 @@ class UrlTests(TestCase):
         about = resolve(reverse('cemeteries:about'))
         return self.assertEqual(about.func.__name__,
                                 AboutView.__name__)
+
+    def test_symbology_ur(self):
+        symbology = resolve(reverse('cemeteries:symbology'))
+        return self.assertEqual(symbology.func.__name__,
+                                SymbologyView.__name__)
