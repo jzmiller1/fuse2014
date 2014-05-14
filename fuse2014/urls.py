@@ -8,4 +8,5 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('cemeteries.urls', namespace='cemeteries')),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
 )
