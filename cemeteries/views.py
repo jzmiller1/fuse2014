@@ -1,5 +1,5 @@
 from django.views import generic
-from .models import Cemetery, Marker, Person
+from .models import Cemetery, Marker, Person, Symbology
 # Create your views here.
 
 
@@ -39,3 +39,8 @@ class PersonDetailView(generic.DetailView):
 
 class AboutView(generic.TemplateView):
     template_name = "cemeteries/about.html"
+
+
+class SymbologyView(generic.ListView):
+    model = Symbology
+    template_name = "cemeteries/symbology.html"
