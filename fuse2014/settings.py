@@ -39,7 +39,12 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'cemeteries',
     'bootstrap',
+    'registration',
 )
+
+
+
+LOGIN_REDIRECT_URL = '/main'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
