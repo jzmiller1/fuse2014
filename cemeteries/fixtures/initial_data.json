@@ -206,5 +206,50 @@
             "footstone":true,
             "footstoneI":"WHHP"
         }
+    },
+
+    {
+        "model":"cemeteries.symbology",
+        "pk":1,
+        "fields":{
+               "symbology":"floral",
+               "markers": [6006]
+        }
+    },
+
+    {
+        "model":"cemeteries.symbology",
+        "pk":2,
+        "fields":{
+            "symbology":"lines",
+            "markers": [6006, 6007]
+        }
+    },
+
+    {
+        "model":"cemeteries.symbology",
+        "pk":3,
+        "fields":{
+            "symbology":"tree",
+            "markers": [6007, 6028]
+        }
+    },
+
+    {
+        "model":"cemeteries.symbology",
+        "pk":4,
+        "fields":{
+            "symbology":"iron cross",
+            "markers": [6027]
+        }
+    },
+
+    {
+        "model":"cemeteries.symbology",
+        "pk":5,
+        "fields":{
+            "symbology":"chain",
+            "markers": [6028]
+        }
     }
 ]
