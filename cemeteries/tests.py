@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.core.urlresolvers import resolve, reverse
 from .views import MainView, CemeteryListView, CemeteryDetailView, MarkerListView, MarkerDetailView
-from .views import PersonListView, PersonDetailView, AboutView, SymbologyView
+from .views import PersonListView, PersonDetailView, AboutView, SymbologyView, PeopleView
 
 # Create your tests here.
 from django.test import TestCase
@@ -99,6 +99,11 @@ class UrlTests(TestCase):
         about = resolve(reverse('cemeteries:about'))
         return self.assertEqual(about.func.__name__,
                                 AboutView.__name__)
+
+    def test_person_search(self):
+        search = resolve(reverse('cemeteries:people_view'))
+        return self.assertEqual(search.func.__name__,
+                                PeopleView.__name__)
 
     def test_symbology_ur(self):
         symbology = resolve(reverse('cemeteries:symbology'))
