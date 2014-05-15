@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% for symbology in object_list %}
+  {% for symbology in object_list %}
     <li><p>{{ symbology.symbology }}</p>
-   {% for marker in  symbology.markers.all %}
-       <p>{{ marker.markerid }}</p>
-       {% endfor %}
+      {% for marker in  symbology.markers.all %}
+        <p>{{ marker.markerid }}</p>
+      {% endfor %}
 
     </li>
-{% endfor %}
+  {% endfor %}
 
-<h1>{{ symbology }}</h1>
+  <h1>{{ symbology }}</h1>
 
 {% endblock %}
