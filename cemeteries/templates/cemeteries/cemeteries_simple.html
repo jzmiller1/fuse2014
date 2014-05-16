@@ -2,9 +2,9 @@
 
 {% block title %}Cemeteries{% endblock %}
 {% block content %}
-    <ul>
+  <ul>
     {% for cemetery in object_list %}
-    <li><a href="/cemeteries/{{ cemetery.pk }}">{{ cemetery.name|capfirst }}</a></li>
+      <li><a href="/cemeteries/{{ cemetery.pk }}">{{ cemetery.name|capfirst }}</a></li>
     {% endfor %}
-    </ul>
+  </ul>
 {% endblock %}
