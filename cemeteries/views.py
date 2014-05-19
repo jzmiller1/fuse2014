@@ -1,5 +1,5 @@
 from django.views import generic
-from .models import Cemetery, Marker, Person, Symbology
+from .models import Cemetery, Marker, Person, Symbology, MarkerImage
 from django.db.models import Q
 # Create your views here.
 
@@ -23,9 +23,26 @@ class MarkerListView(generic.ListView):
     template_name = "cemeteries/markers_simple.html"
 
 
-class MarkerDetailView(generic.DetailView):
-    model = Marker
+class MarkerDetailView(generic.TemplateView):
     template_name = "cemeteries/markers_detail.html"
+
+    def get_context_data(self, **kwargs):
+        """ Resize image.
+
+        Resizes an to specified height while keeping the images aspect ratio. Used in the Marker Detail template if image
+        exists.
+        """
+        context = super(MarkerDetailView, self).get_context_data(**kwargs)
+        image = MarkerImage.objects.filter(markerid=kwargs['pk']).first()
+        if image is not None:
+            h_ratio = image.image.height / 300.0
+            w_ratio = image.image.width / 200.0
+            image.height = image.image.height / max(h_ratio, w_ratio)
+            image.width = image.image.width / max(h_ratio, w_ratio)
+            context['image'] = image
+        marker = Marker.objects.filter(markerid=kwargs['pk']).first()
+        context['marker'] = marker
+        return context
 
 
 class PersonListView(generic.ListView):

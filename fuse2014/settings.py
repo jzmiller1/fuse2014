@@ -13,6 +13,8 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
@@ -40,6 +42,7 @@ INSTALLED_APPS = (
     'cemeteries',
     'bootstrap',
     'registration',
+    'fixture_media'
 )
 
 

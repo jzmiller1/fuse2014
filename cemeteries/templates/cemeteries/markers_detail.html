@@ -5,11 +5,22 @@
 
 
 {% block content %}
-  <h1>Marker {{ object.markerid }}</h1>
-  <p>Marker Id: {{ object.markerid }}</p>
-  <p>Marker Condition: {{ object.condition }}</p>
-  <p>Marker Readability: {{ object.readable }}</p>
-  <p>Marker Epitaph: {{ object.epitaph }}</p>
-  <p>Marker Family Name: {{ object.family_name }}</p>
-  <p>Marker Cemetery : {{ object.cemetery }}</p>
+<font size="5" font face = "Comic Sans MS">
+  {% if image %}
+    <p><img src="{{ MEDIA_URL }}{{ image.image }}" width={{ image.width }} height={{ image.height }}></p>
+    <br>
+  {% else %}
+    <p>No image exists for grave marker {{ marker.markerid }} at this time. </p>
+  {% endif %}
+
+
+    <p><b>Family Name:</b> {{ marker.family_name|capfirst }}<br>
+    <b>Marker Id:</b> {{ marker.markerid }}<br>
+    <b>Marker Condition:</b> {{ marker.condition }}<br>
+    <b>Marker Readability:</b> {{ marker.readable }}<br>
+    <b>Marker Epitaph:</b> {{ marker.epitaph }}<br>
+    <b>Marker Cemetery</b> : {{ marker.cemetery }}</p>
+    <a href="/marker/">Return to Grave Markers</a>
+</font>
+
 {% endblock %}
