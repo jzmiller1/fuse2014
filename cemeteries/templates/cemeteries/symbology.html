@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% for symbology in object_list %}
-    <li><p>{{ symbology.symbology }}</p>
-   {% for marker in  symbology.markers.all %}
-       <p>{{ marker.markerid }}</p>
-       {% endfor %}
-
-    </li>
-{% endfor %}
-
-<h1>{{ symbology }}</h1>
-
+  <h1><font face="algerian"><b>Explore the Symbology</b></font></h1><br>
+  {% for symbology in object_list %}
+    <div class="row">
+      <div class="col-md-3">
+        <button class="btn btn-info btn-lg btn-block" data-toggle="collapse"
+                data-target="#{{ symbology|slugify }}">{{ symbology }}</button>
+      </div>
+      <div class="col-md-9">
+        <div class="collapse" id="{{ symbology|slugify }}">
+          {% for marker in symbology.markers.all %}
+            <a href="/marker/{{ marker.pk }}">{{ marker.markerid }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
 {% endblock %}

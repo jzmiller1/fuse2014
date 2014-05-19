@@ -5,53 +5,56 @@
 {% block title %}Cem Site{% endblock %}
 
 {% block morehead %}
-    <link href="{% static "bootstrap/css/carousel.css" %}" rel="stylesheet">
+  <link href="{% static "bootstrap/css/carousel.css" %}" rel="stylesheet">
 {% endblock %}
 
 
 
 {% block content %}
-<!-- http://parkhurstdesign.com/improved-carousels-twitter-bootstrap/ to adjust image size before displaying-->
-    <!-- Carousel ================================================== -->
-   <section id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <figure class="item active">
-		<img src="{% static 'cemeteries/images/carousel/Blue.jpg' %}" >
-            <figcaption class="carousel-caption">
-              <h1>Visit Urban Cemeteries</h1>
-              <font size="5"><p>View Cemeteries Using a High Resolution Interactive Map</p></font>
-              <p><a class="btn btn-lg btn-primary" href="" role="button">Start Viewing Cemeteries</a></p>
-            </figcaption>
-        </figure>
-        <figure class="item">
-		<img src="{% static 'cemeteries/images/carousel/TBlue.jpg' %}" alt="Wage War">
-            <figcaption class="carousel-caption">
-              <h1>Search Records</h1>
-              <font size="5"><p>Find Family Members and Explore Grave Marker Symbology</p></font>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Start Searching Cemeteries</a></p>
-            </figcaption>
-        </figure>
-        <figure class="item">
-		<img src="{% static 'cemeteries/images/carousel/Green.jpg' %}" alt="Meet People">
-            <figcaption class="carousel-caption">
-              <h1>Sign Up Today</h1>
-              <font size="5"><p>Explore the Endless Possibilities. </p></font>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">See the Possibilities</a></p>
-            </figcaption>
-        </figure>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span></a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span></a>
-    </section>
+  <!-- http://parkhurstdesign.com/improved-carousels-twitter-bootstrap/ to adjust image size before displaying-->
+  <!-- Carousel ================================================== -->
+  <section id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <figure class="item active">
+        <img src="{% static 'cemeteries/images/carousel/Blue.jpg' %}">
+        <figcaption class="carousel-caption">
+          <h1>Visit Urban Cemeteries</h1>
+          <font size="5"><p>View Cemeteries Using a High Resolution Interactive Map</p></font>
 
-    <!-- /.carousel -->
+          <p><a class="btn btn-lg btn-primary" href="/accounts/login/" role="button">Start Viewing Cemeteries</a></p>
+        </figcaption>
+      </figure>
+      <figure class="item">
+        <img src="{% static 'cemeteries/images/carousel/TBlue.jpg' %}" alt="Wage War">
+        <figcaption class="carousel-caption">
+          <h1>Search Records</h1>
+          <font size="5"><p>Find Family Members and Explore Grave Marker Symbology</p></font>
+
+          <p><a class="btn btn-lg btn-primary" href="/accounts/login/" role="button">Start Searching Cemeteries</a></p>
+        </figcaption>
+      </figure>
+      <figure class="item">
+        <img src="{% static 'cemeteries/images/carousel/Green.jpg' %}" alt="Meet People">
+        <figcaption class="carousel-caption">
+          <h1>Sign Up Today</h1>
+          <font size="5"><p>Explore the Endless Possibilities. </p></font>
+
+          <p><a class="btn btn-lg btn-primary" href="/accounts/login/" role="button">See the Possibilities</a></p>
+        </figcaption>
+      </figure>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span></a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span></a>
+  </section>
+
+  <!-- /.carousel -->
 {% endblock content %}
 
