@@ -2,9 +2,6 @@ from django.test import TestCase
 from django.core.urlresolvers import resolve, reverse
 from .views import MainView, CemeteryListView, CemeteryDetailView, MarkerListView, MarkerDetailView
 from .views import PersonListView, PersonDetailView, AboutView, SymbologyView, PeopleView
-
-# Create your tests here.
-from django.test import TestCase
 from cemeteries import models
 
 
@@ -45,6 +42,15 @@ class PersonTestCase(TestCase):
         """Verifying __str__ returns with proper formatting."""
         person = models.Person.objects.get(first_name="Alonzo")
         self.assertEqual(person.__str__(), "FullName : Alonzo Poole, Markerid: 6006 - Timberidge Cemetery")
+
+
+class ImageTestCase(TestCase):
+    def setUp(self):
+        pass
+
+    def test_image_string(self):
+        image = models.MarkerImage.objects.get(markerid=6006)
+        self.assertEqual(image.__str__(), "Markerid: 6006 - Timberidge Cemetery")
 
 
 class SymbologyTestCase(TestCase):

@@ -251,5 +251,13 @@
             "symbology":"chain",
             "markers": [6028]
         }
+    },
+
+    {
+        "model":"cemeteries.markerimage",
+        "fields":{
+            "markerid": 6006,
+            "image":"images/LargeRoundHeadstone1.jpg"
+        }
     }
 ]
