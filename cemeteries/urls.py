@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from .views import MainView, CemeteryListView, CemeteryDetailView, MarkerListView,MarkerDetailView
-from .views import PersonListView, PersonDetailView,AboutView, SymbologyView, PeopleView, MarkerImageView
+from .views import PersonListView, PersonDetailView,AboutView, SymbologyView, PeopleView
 from .models import Cemetery, Marker, Person, Symbology
 from django.contrib.auth.decorators import login_required
 
