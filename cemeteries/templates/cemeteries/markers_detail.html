@@ -5,11 +5,15 @@
 
 
 {% block content %}
+<font size="5" font face = "Comic Sans MS">
   {% if image %}
-
     <p><img src="{{ MEDIA_URL }}{{ image.image }}" width={{ image.width }} height={{ image.height }}></p>
     <br>
-    <font size="5" font face = "Comic Sans MS">
+  {% else %}
+    <p>No image exists for grave marker {{ marker.markerid }} at this time. </p>
+  {% endif %}
+
+
     <p><b>Family Name:</b> {{ marker.family_name|capfirst }}<br>
     <b>Marker Id:</b> {{ marker.markerid }}<br>
     <b>Marker Condition:</b> {{ marker.condition }}<br>
@@ -17,17 +21,6 @@
     <b>Marker Epitaph:</b> {{ marker.epitaph }}<br>
     <b>Marker Cemetery</b> : {{ marker.cemetery }}</p>
     <a href="/marker/">Return to Grave Markers</a>
-    </font>
-  {% else %}
-    <font size="5" font face = "Comic Sans MS">
-      <p>No image exists for grave marker {{ marker.markerid }} at this time. </p>
-      <p><b>Family Name:</b> {{ marker.family_name|capfirst }}<br>
-      <b>Marker Id:</b> {{ marker.markerid }}<br>
-      <b>Marker Condition:</b> {{ marker.condition }}<br>
-      <b>Marker Readability:</b> {{ marker.readable }}<br>
-      <b>Marker Epitaph:</b> {{ marker.epitaph }}<br>
-      <b>Marker Cemetery</b> : {{ marker.cemetery }}</p>
-      <a href="/marker/">Return to Grave Markers</a>
-    </font>
-  {% endif %}
+</font>
+
 {% endblock %}
