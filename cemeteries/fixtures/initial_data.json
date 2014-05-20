@@ -76,6 +76,8 @@
             "veteran":"unknown",
             "b_year":"1893",
             "d_year":"1939",
+            "a_birth":"1893-01-26",
+            "a_death": "1939-03-10",
             "epitaph":"",
             "footstone":false,
             "footstoneI":""
@@ -94,6 +96,8 @@
             "veteran": "unknown",
             "b_year":"1876",
             "d_year":"1932",
+            "a_birth":"1876-02-03",
+            "a_death":"1932-01-31",
             "epitaph":"",
             "footstone":true,
             "footstoneI": "MEP"
@@ -112,6 +116,8 @@
             "veteran":"unknown",
             "b_year":"1870",
             "d_year":"1935",
+            "a_birth":"1870-01-11",
+            "a_death":"1935-05-15",
             "epitaph":"",
             "footstone":true,
             "footstoneI":"ADP"
@@ -130,6 +136,8 @@
             "veteran":"unknown",
             "b_year":"1848",
             "d_year":"1927",
+            "a_birth":"1848-01-06",
+            "a_death":"1927-11-28",
             "epitaph":"Mother:Wife of William H H Poole",
             "footstone":true,
             "footstoneI":""
@@ -148,23 +156,8 @@
             "veteran":"unknown",
             "b_year":"1842",
             "d_year":"1917",
-            "epitaph":"",
-            "footstone":true,
-            "footstoneI":"WHHP"
-        }
-    },
-         {
-    "model": "cemeteries.person",
-    "pk":8,
-    "fields": {
-            "markerid": 6007,
-            "full_name":"J Pool",
-            "first_name":"J",
-            "last_name":"Pool",
-            "gender":"unknown",
-            "veteran":"unknown",
-            "b_year":"1867",
-            "d_year":"1897",
+            "a_birth":"1842-08-10",
+            "a_death":"1917-09-03",
             "epitaph":"",
             "footstone":true,
             "footstoneI":"WHHP"
@@ -183,6 +176,8 @@
             "veteran":"yes",
             "b_year":"9999",
             "d_year":"9999",
+            "a_birth":"3000-00-00",
+            "a_death":"3000-00-00",
             "epitaph":"",
             "footstone":true,
             "footstoneI":""
@@ -201,6 +196,8 @@
             "veteran":"unknown",
             "b_year":"1887",
             "d_year":"1908",
+            "a_birth":"1887-07-27",
+            "a_death":"1908-07-12",
             "epitaph":"",
             "footstone":true,
             "footstoneI":"JCP"
@@ -218,6 +215,8 @@
             "veteran":"unknown",
             "b_year":"1867",
             "d_year":"1897",
+            "a_birth":"1867-05-26",
+            "a_death":"1897-08-24",
             "epitaph":"",
             "footstone":true,
             "footstoneI":""
@@ -235,6 +234,8 @@
             "veteran":"unknown",
             "b_year":"3000",
             "d_year":"1892",
+            "a_birth":"3000-00-00",
+            "a_death":"1892-07-29",
             "epitaph":"",
             "footstone":true,
             "footstoneI":"SP"
