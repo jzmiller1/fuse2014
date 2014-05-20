@@ -5,23 +5,16 @@
 {% block content %}
   <font size="7">{{ object.full_name }}</font>
   <font size="5" font face="Comic Sans MS">
-    <p>Cemetery: {{ object.markerid.cemetery }}</p>
-
-    <p>Marker Id: {{ object.markerid.markerid }}</p>
-
-    <p>Gender: {{ object.gender }}</p>
-
-    <p>Veteran: {{ object.veteran }}</p>
-
-    <p>Birth Year: {{ object.b_year }}</p>
-
-    <p>Death Year: {{ object.d_year }}</p>
-
-    <p>Epitaph: {{ object.epitaph }}</p>
-
-    <p>Footstone: {{ object.footstone }}</p>
-
-    <p>Footstone Epitaph: {{ object.footstoneI }}</p>
+    <p><b>Cemetery:</b> {{ object.markerid.cemetery }}<br>
+    <b>Marker Id:</b> {{ object.markerid.markerid }}<br>
+    <b>Gender:</b> {{ object.gender }}<br>
+    <b>Veteran:</b> {{ object.veteran }}<br>
+    <b>Birth Year:</b> {{ object.b_year }}<br>
+    <b>Death Year:</b> {{ object.d_year }}<br>
+    <b>Epitaph:</b> {{ object.epitaph }}<br>
+    <b>Footstone:</b> {{ object.footstone }}<br>
+    <b>Footstone Epitaph:</b> {{ object.footstoneI }}<br></p>
+  <    <a href="/person/">Return to List of People</a>
   </font>
 {% endblock %}
 </body>
