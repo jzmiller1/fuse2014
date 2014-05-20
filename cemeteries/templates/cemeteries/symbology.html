@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 
+{% block title %} Symbology {% endblock %}
+
 {% block content %}
-  <h1><font face="algerian"><b>Explore the Symbology</b></font></h1><br>
+  <font size="5" font face="Comic Sans MS">
+  <h1><b>Explore the Symbology</b></h1><br>
   {% for symbology in object_list %}
     <div class="row">
       <div class="col-md-3">
         <button class="btn btn-info btn-lg btn-block" data-toggle="collapse"
-                data-target="#{{ symbology|slugify }}">{{ symbology }}</button>
+                data-target="#{{ symbology|slugify }}">{{ symbology|capfirst }}</button>
       </div>
       <div class="col-md-9">
         <div class="collapse" id="{{ symbology|slugify }}">
@@ -17,4 +20,5 @@
       </div>
     </div>
   {% endfor %}
+  </font>
 {% endblock %}
