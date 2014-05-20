@@ -153,6 +153,23 @@
             "footstoneI":"WHHP"
         }
     },
+         {
+    "model": "cemeteries.person",
+    "pk":8,
+    "fields": {
+            "markerid": 6007,
+            "full_name":"J Pool",
+            "first_name":"J",
+            "last_name":"Pool",
+            "gender":"unknown",
+            "veteran":"unknown",
+            "b_year":"1867",
+            "d_year":"1897",
+            "epitaph":"",
+            "footstone":true,
+            "footstoneI":"WHHP"
+        }
+    },
 
         {
     "model": "cemeteries.person",
@@ -189,12 +206,11 @@
             "footstoneI":"JCP"
         }
     },
-
             {
     "model": "cemeteries.person",
-    "pk":8,
+    "pk":7,
     "fields": {
-            "markerid": 6007,
+            "markerid": 6028,
             "full_name":"J Pool",
             "first_name":"J",
             "last_name":"Pool",
@@ -204,9 +220,27 @@
             "d_year":"1897",
             "epitaph":"",
             "footstone":true,
-            "footstoneI":"WHHP"
+            "footstoneI":""
         }
     },
+                {
+    "model": "cemeteries.person",
+    "pk":7,
+    "fields": {
+            "markerid": 6028,
+            "full_name":"Sallie Pool",
+            "first_name":"Sallie",
+            "last_name":"Pool",
+            "gender":"Female",
+            "veteran":"unknown",
+            "b_year":"3000",
+            "d_year":"1892",
+            "epitaph":"",
+            "footstone":true,
+            "footstoneI":"SP"
+        }
+    },
+
 
     {
         "model":"cemeteries.symbology",
@@ -252,12 +286,39 @@
             "markers": [6028]
         }
     },
-
-    {
+        {
+        "model":"cemeteries.markerimage",
+        "fields":{
+            "markerid": 6005,
+            "image":"images/6005_PooleG.jpg"
+        }
+    },
+        {
         "model":"cemeteries.markerimage",
         "fields":{
             "markerid": 6006,
-            "image":"images/LargeRoundHeadstone1.jpg"
+            "image":"images/6006_PooleCrop.jpg"
+        }
+    },
+        {
+        "model":"cemeteries.markerimage",
+        "fields":{
+            "markerid": 6007,
+            "image":"images/6007_Poole.jpg"
+        }
+    },
+        {
+        "model":"cemeteries.markerimage",
+        "fields":{
+            "markerid": 6027,
+            "image":"images/6027_Hawkins.jpg"
+        }
+    },
+        {
+        "model":"cemeteries.markerimage",
+        "fields":{
+            "markerid": 6028,
+            "image":"images/6028Crop.jpg"
         }
     }
 ]
