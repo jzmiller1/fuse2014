@@ -20,6 +20,9 @@
     <b>Marker Readability:</b> {{ marker.readable }}<br>
     <b>Marker Epitaph:</b> {{ marker.epitaph }}<br>
     <b>Marker Cemetery</b> : {{ marker.cemetery }}</p>
+{% for person in people %}
+    <a href="/person/{{ person.pk }}">{{ person.full_name }}</a><br>
+{% endfor %}
     <a href="/marker/">Return to Grave Markers</a>
 </font>
 

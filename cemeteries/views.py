@@ -41,7 +41,9 @@ class MarkerDetailView(generic.TemplateView):
             image.width = image.image.width / max(h_ratio, w_ratio)
             context['image'] = image
         marker = Marker.objects.filter(markerid=kwargs['pk']).first()
+        people = Person.objects.filter(markerid=kwargs['pk'])
         context['marker'] = marker
+        context['people'] = people
         return context
 
 
@@ -50,9 +52,27 @@ class PersonListView(generic.ListView):
     template_name = "cemeteries/person_simple.html"
 
 
-class PersonDetailView(generic.DetailView):
-    model = Person
+class PersonDetailView(generic.TemplateView):
     template_name = "cemeteries/person_detail.html"
+
+    def get_context_data(self, **kwargs):
+        """ Resize image.
+
+        Resizes an to specified height while keeping the images aspect ratio. Used in the Person Detail template if image
+        exists.
+        """
+        context = super(PersonDetailView, self).get_context_data(**kwargs)
+        person = Person.objects.filter(pk=kwargs['pk']).first()
+        image = MarkerImage.objects.filter(markerid=person.markerid.pk).first()
+        if image is not None:
+            h_ratio = image.image.height / 700.0
+            w_ratio = image.image.width / 600.0
+            image.height = image.image.height / max(h_ratio, w_ratio)
+            image.width = image.image.width / max(h_ratio, w_ratio)
+            context['image'] = image
+
+        context['person'] = person
+        return context
 
 
 class AboutView(generic.TemplateView):

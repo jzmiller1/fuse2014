@@ -3,18 +3,25 @@
 
 {% block title %}Person{% endblock %}
 {% block content %}
-  <font size="7">{{ object.full_name }}</font>
+  <font size="7">{{ person.full_name }}</font>
   <font size="5" font face="Comic Sans MS">
-    <p><b>Cemetery:</b> {{ object.markerid.cemetery }}<br>
-    <b>Marker Id:</b> {{ object.markerid.markerid }}<br>
-    <b>Gender:</b> {{ object.gender }}<br>
-    <b>Veteran:</b> {{ object.veteran }}<br>
-    <b>Born:</b> {{ object.a_birth }}<br>
-    <b>Died:</b> {{ object.a_death }}<br>
-    <b>Epitaph:</b> {{ object.epitaph }}<br>
-    <b>Footstone:</b> {{ object.footstone }}<br>
-    <b>Footstone Epitaph:</b> {{ object.footstoneI }}<br></p>
-  <    <a href="/person/">Return to List of People</a>
+    {% if image %}
+    <p><img src="{{ MEDIA_URL }}{{ image.image }}" width={{ image.width }} height={{ image.height }}></p>
+    <br>
+  {% else %}
+    <p>No image exists for {{ person.full_name }} at this time. </p>
+  {% endif %}
+
+    <p><b>Cemetery:</b> {{ person.markerid.cemetery }}<br>
+    <b>Marker Id:</b> {{ person.markerid.markerid }}<br>
+    <b>Gender:</b> {{ person.gender }}<br>
+    <b>Veteran:</b> {{ person.veteran }}<br>
+    <b>Born:</b> {{ person.a_birth }}<br>
+    <b>Died:</b> {{ person.a_death }}<br>
+    <b>Epitaph:</b> {{ person.epitaph }}<br>
+    <b>Footstone:</b> {{ person.footstone }}<br>
+    <b>Footstone Epitaph:</b> {{ person.footstoneI }}<br></p>
+    <a href="/person/">Return to Person Index</a>
   </font>
 {% endblock %}
 </body>
