@@ -1,4 +1,5 @@
 from django.db import models
+from django_date_extensions.fields import ApproximateDateField, ApproximateDate
 
 
 class Cemetery(models.Model):
@@ -46,12 +47,14 @@ class Person(models.Model):
     veteran = models.CharField(max_length=7)
     b_year = models.CharField(max_length=4)
     d_year = models.CharField(max_length=4)
+    a_birth = ApproximateDateField(null=True)
+    a_death = ApproximateDateField(null=True)
     epitaph = models.TextField()
     footstone = models.BooleanField(default=None)
     footstoneI = models.TextField()
 
     def __str__(self):
-        return "FullName : {0}, {1}".format(self.full_name, self.markerid)
+        return "FullName : {0}, {1} Born: {2} Died: {3}".format(self.full_name, self.markerid, self.a_birth,self.a_death)
 
 
 class MarkerImage(models.Model):

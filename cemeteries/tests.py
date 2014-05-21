@@ -41,7 +41,8 @@ class PersonTestCase(TestCase):
     def test_person_string(self):
         """Verifying __str__ returns with proper formatting."""
         person = models.Person.objects.get(first_name="Alonzo")
-        self.assertEqual(person.__str__(), "FullName : Alonzo Poole, Markerid: 6006 - Timberidge Cemetery")
+        r = "FullName : Alonzo Poole, Markerid: 6006 - Timberidge Cemetery Born: 11th January 1870 Died: 15th May 1935"
+        self.assertEqual(person.__str__(), r)
 
 
 class ImageTestCase(TestCase):
