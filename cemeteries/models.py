@@ -54,7 +54,7 @@ class Person(models.Model):
     footstoneI = models.TextField()
 
     def __str__(self):
-        return "FullName : {0}, {1}".format(self.full_name, self.markerid)
+        return "FullName : {0}, {1} Born: {2} Died: {3}".format(self.full_name, self.markerid, self.a_birth,self.a_death)
 
 
 class MarkerImage(models.Model):
