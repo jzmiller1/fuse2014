@@ -3,14 +3,11 @@
 {% block title %}Person{% endblock %}
 
 {% block content %}
-  <h1>
-    Names of People In Cemeteries
-  </h1>
+
   <font size="5" font face="Comic Sans MS">
-    <ul>
+    <h1><b> Names of People In Cemeteries</b></h1>
       {% for person in object_list %}
         <li><a href="/person/{{ person.pk }}">{{ person.full_name|capfirst }}</a></li>
       {% endfor %}
-    </ul>
   </font>
 {% endblock %}

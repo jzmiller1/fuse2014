@@ -35,8 +35,8 @@ class MarkerDetailView(generic.TemplateView):
         context = super(MarkerDetailView, self).get_context_data(**kwargs)
         image = MarkerImage.objects.filter(markerid=kwargs['pk']).first()
         if image is not None:
-            h_ratio = image.image.height / 700.0
-            w_ratio = image.image.width / 600.0
+            h_ratio = image.image.height / 800.0
+            w_ratio = image.image.width / 700.0
             image.height = image.image.height / max(h_ratio, w_ratio)
             image.width = image.image.width / max(h_ratio, w_ratio)
             context['image'] = image
@@ -65,8 +65,8 @@ class PersonDetailView(generic.TemplateView):
         person = Person.objects.filter(pk=kwargs['pk']).first()
         image = MarkerImage.objects.filter(markerid=person.markerid.pk).first()
         if image is not None:
-            h_ratio = image.image.height / 700.0
-            w_ratio = image.image.width / 600.0
+            h_ratio = image.image.height / 800.0
+            w_ratio = image.image.width / 700.0
             image.height = image.image.height / max(h_ratio, w_ratio)
             image.width = image.image.width / max(h_ratio, w_ratio)
             context['image'] = image
