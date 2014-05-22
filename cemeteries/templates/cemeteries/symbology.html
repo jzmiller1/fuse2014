@@ -14,7 +14,7 @@
         <div class="col-md-9">
           <div class="collapse" id="{{ symbology|slugify }}">
             {% for marker in symbology.markers.all %}
-              <a href="/marker/{{ marker.pk }}">{{ marker.markerid }}</a>
+              <a href="{% url 'cemeteries:marker_dview' pk=marker.pk %}">{{ marker.markerid }}</a>
             {% endfor %}
           </div>
         </div>
@@ -22,3 +22,5 @@
     {% endfor %}
   </font>
 {% endblock %}
+
+
