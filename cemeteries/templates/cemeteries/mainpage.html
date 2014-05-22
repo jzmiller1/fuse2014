@@ -27,25 +27,25 @@
           <h1>Visit Urban Cemeteries</h1>
           <font size="5"><p>View Cemeteries Using a High Resolution Interactive Map</p></font>
 
-          <p><a class="btn btn-lg btn-primary" href="/accounts/login/" role="button">Start Viewing Cemeteries</a></p>
+          <p><a class="btn btn-lg btn-primary" href="{% url 'cemeteries:cem_lview' %}" role="button">Start Viewing Cemeteries</a></p>
         </figcaption>
       </figure>
       <figure class="item">
         <img src="{% static 'cemeteries/images/carousel/TBlue.jpg' %}" alt="Wage War">
         <figcaption class="carousel-caption">
           <h1>Search Records</h1>
-          <font size="5"><p>Find Family Members and Explore Grave Marker Symbology</p></font>
+          <font size="5"><p>Explore Grave Marker Symbology</p></font>
 
-          <p><a class="btn btn-lg btn-primary" href="/accounts/login/" role="button">Start Searching Cemeteries</a></p>
+          <p><a class="btn btn-lg btn-primary" href="{% url 'cemeteries:symbology' %}" role="button">Start Searching Cemeteries</a></p>
         </figcaption>
       </figure>
       <figure class="item">
         <img src="{% static 'cemeteries/images/carousel/Green.jpg' %}" alt="Meet People">
         <figcaption class="carousel-caption">
           <h1>Sign Up Today</h1>
-          <font size="5"><p>Explore the Endless Possibilities. </p></font>
+          <font size="5"><p>Locate Family Members. </p></font>
 
-          <p><a class="btn btn-lg btn-primary" href="/accounts/login/" role="button">See the Possibilities</a></p>
+          <p><a class="btn btn-lg btn-primary" href="{% url 'cemeteries:people_view' %}" role="button">See the Possibilities</a></p>
         </figcaption>
       </figure>
     </div>
