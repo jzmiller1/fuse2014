@@ -4,21 +4,21 @@
 
 {% block content %}
   <font size="5" font face="Comic Sans MS">
-  <h1><b>Explore the Symbology</b></h1><br>
-  {% for symbology in object_list %}
-    <div class="row">
-      <div class="col-md-3">
-        <button class="btn btn-info btn-lg btn-block" data-toggle="collapse"
-                data-target="#{{ symbology|slugify }}">{{ symbology|capfirst }}</button>
-      </div>
-      <div class="col-md-9">
-        <div class="collapse" id="{{ symbology|slugify }}">
-          {% for marker in symbology.markers.all %}
-            <a href="/marker/{{ marker.pk }}">{{ marker.markerid }}</a>
-          {% endfor %}
+    <h1><b>Explore the Symbology</b></h1><br>
+    {% for symbology in object_list %}
+      <div class="row">
+        <div class="col-md-3">
+          <button class="btn btn-info btn-lg btn-block" data-toggle="collapse"
+                  data-target="#{{ symbology|slugify }}">{{ symbology|capfirst }}</button>
+        </div>
+        <div class="col-md-9">
+          <div class="collapse" id="{{ symbology|slugify }}">
+            {% for marker in symbology.markers.all %}
+              <a href="/marker/{{ marker.pk }}">{{ marker.markerid }}</a>
+            {% endfor %}
+          </div>
         </div>
       </div>
-    </div>
-  {% endfor %}
+    {% endfor %}
   </font>
 {% endblock %}

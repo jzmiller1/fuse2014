@@ -3,6 +3,9 @@ from .models import Cemetery, Marker, Person, Symbology, MarkerImage
 from django.db.models import Q
 # Create your views here.
 
+def get_rel_referer(referer):
+    back = "/" + "/".join(referer.split('/')[3:])
+    return back
 
 class MainView(generic.TemplateView):
     template_name = "cemeteries/mainpage.html"
@@ -35,13 +38,18 @@ class MarkerDetailView(generic.TemplateView):
         context = super(MarkerDetailView, self).get_context_data(**kwargs)
         image = MarkerImage.objects.filter(markerid=kwargs['pk']).first()
         if image is not None:
-            h_ratio = image.image.height / 700.0
-            w_ratio = image.image.width / 600.0
+            h_ratio = image.image.height / 800.0
+            w_ratio = image.image.width / 700.0
             image.height = image.image.height / max(h_ratio, w_ratio)
             image.width = image.image.width / max(h_ratio, w_ratio)
             context['image'] = image
         marker = Marker.objects.filter(markerid=kwargs['pk']).first()
+        people = Person.objects.filter(markerid=kwargs['pk'])
         context['marker'] = marker
+        context['people'] = people
+        refer = self.request.META.get('HTTP_REFERER')
+        if refer is not None:
+            context['back'] = get_rel_referer(refer)
         return context
 
 
@@ -50,9 +58,29 @@ class PersonListView(generic.ListView):
     template_name = "cemeteries/person_simple.html"
 
 
-class PersonDetailView(generic.DetailView):
-    model = Person
+class PersonDetailView(generic.TemplateView):
     template_name = "cemeteries/person_detail.html"
+
+    def get_context_data(self, **kwargs):
+        """ Resize image.
+
+        Resizes an to specified height while keeping the images aspect ratio. Used in the Person Detail template if image
+        exists.
+        """
+        context = super(PersonDetailView, self).get_context_data(**kwargs)
+        person = Person.objects.filter(pk=kwargs['pk']).first()
+        image = MarkerImage.objects.filter(markerid=person.markerid.pk).first()
+        if image is not None:
+            h_ratio = image.image.height / 800.0
+            w_ratio = image.image.width / 700.0
+            image.height = image.image.height / max(h_ratio, w_ratio)
+            image.width = image.image.width / max(h_ratio, w_ratio)
+            context['image'] = image
+        refer = self.request.META.get('HTTP_REFERER')
+        if refer is not None:
+            context['back'] = get_rel_referer(refer)
+        context['person'] = person
+        return context
 
 
 class AboutView(generic.TemplateView):

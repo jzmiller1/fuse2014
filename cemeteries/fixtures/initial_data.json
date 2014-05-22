@@ -205,7 +205,7 @@
     },
             {
     "model": "cemeteries.person",
-    "pk":7,
+    "pk":8,
     "fields": {
             "markerid": 6028,
             "full_name":"J Pool",
@@ -224,7 +224,7 @@
     },
                 {
     "model": "cemeteries.person",
-    "pk":7,
+    "pk":9,
     "fields": {
             "markerid": 6028,
             "full_name":"Sallie Pool",
