@@ -34,7 +34,8 @@
   {% if back == symbology %}
   <a href="{{ back }}">Return to Symbology</a>
   {% else %}
-   <a href="/person/">Return to Person Index</a>
+    {% url 'cemeteries:person_lview' as people%}
+   <a href="{{ people }}">Return to Person Index</a>
   {% endif %}
   </p>
 

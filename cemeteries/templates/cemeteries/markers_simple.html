@@ -7,7 +7,7 @@
   <font size="5" font face="Comic Sans MS">
     <h1><b>Grave Marker Identification Numbers</b></h1><br>
     {% for marker in object_list %}
-      <li><a href="/marker/{{ marker.pk }}">{{ marker.markerid }}</a></li>
+      <li><a href="{% url 'cemeteries:marker_dview' pk=marker.pk %}">{{ marker.markerid }}</a></li>
     {% endfor %}
   </font>
 {% endblock %}
