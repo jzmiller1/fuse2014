@@ -3,6 +3,9 @@ from .models import Cemetery, Marker, Person, Symbology, MarkerImage
 from django.db.models import Q
 # Create your views here.
 
+def get_rel_referer(referer):
+    back = "/" + "/".join(referer.split('/')[3:])
+    return back
 
 class MainView(generic.TemplateView):
     template_name = "cemeteries/mainpage.html"
@@ -44,6 +47,9 @@ class MarkerDetailView(generic.TemplateView):
         people = Person.objects.filter(markerid=kwargs['pk'])
         context['marker'] = marker
         context['people'] = people
+        refer = self.request.META.get('HTTP_REFERER')
+        if refer is not None:
+            context['back'] = get_rel_referer(refer)
         return context
 
 
@@ -70,7 +76,9 @@ class PersonDetailView(generic.TemplateView):
             image.height = image.image.height / max(h_ratio, w_ratio)
             image.width = image.image.width / max(h_ratio, w_ratio)
             context['image'] = image
-
+        refer = self.request.META.get('HTTP_REFERER')
+        if refer is not None:
+            context['back'] = get_rel_referer(refer)
         context['person'] = person
         return context
 

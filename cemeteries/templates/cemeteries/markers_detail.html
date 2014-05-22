@@ -28,6 +28,14 @@
       </div>
     </div>
   </font>
-  <p align="center" style="font-size:25px"><a href="/person/">Return to Person Index</a></p>
+  <p align="center" style="font-size:25px">
+
+  {% url "cemeteries:symbology" as symbology %}
+  {% if back == symbology %}
+  <a href="{{ back }}">Return to Symbology</a>
+  {% else %}
+   <a href="/person/">Return to Person Index</a>
+  {% endif %}
+  </p>
 
 {% endblock %}

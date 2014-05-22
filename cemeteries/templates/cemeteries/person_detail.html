@@ -27,5 +27,13 @@
   </font>
   </div>
   </div>
-  <p align="center" style="font-size:25px"><a href="/person/">Return to Person Index</a></p>
+    <p align="center" style="font-size:25px">
+  {% url "cemeteries:people_view" as people %}
+  {% if back == people %}
+  <a href="{{ back }}">Return to Search by Category</a>
+  {% else %}
+  {% url "cemeteries:person_lview" as index%}
+   <a href="{{ index }}">Return to Person Index</a>
+  {% endif %}
+  </p>
 {% endblock %}
