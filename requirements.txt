@@ -1,0 +1,6 @@
+django==1.7b3
+django-bootstrap-static==3.1.1
+django-date-extensions==0.1dev
+django-fixture-media==0.1.4
+django-registration==1.0
+pillow==2.4.0
