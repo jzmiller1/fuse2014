@@ -42,7 +42,8 @@ INSTALLED_APPS = (
     'cemeteries',
     'bootstrap',
     'registration',
-    'fixture_media'
+    'fixture_media',
+    'haystack',
 )
 
 
@@ -92,3 +93,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+    },
+}

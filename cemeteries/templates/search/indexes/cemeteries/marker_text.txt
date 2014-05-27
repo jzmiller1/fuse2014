@@ -1,0 +1,4 @@
+{{ object.markerid }}
+{{ object.condition }}
+{{ object.epitaph }}
+{{ object.family_name }}
