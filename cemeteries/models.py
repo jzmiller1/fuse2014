@@ -14,6 +14,9 @@ class Cemetery(models.Model):
     def __str__(self):
         return "{} Cemetery".format(self.name)
 
+    def get_absolute_url(self):
+        return "/cemeteries/{}".format(self.pk)
+
 
 class Marker(models.Model):
     """ Marker Model.
@@ -30,6 +33,9 @@ class Marker(models.Model):
 
     def __str__(self):
         return "Markerid: {} - {}".format(self.markerid, self.cemetery)
+
+    def get_absolute_url(self):
+        return "/marker/{}".format(self.markerid)
 
 
 class Person(models.Model):
@@ -55,6 +61,9 @@ class Person(models.Model):
 
     def __str__(self):
         return "FullName : {0}, {1} Born: {2} Died: {3}".format(self.full_name, self.markerid, self.a_birth,self.a_death)
+
+    def get_absolute_url(self):
+        return "/person/{}".format(self.pk)
 
 
 class MarkerImage(models.Model):

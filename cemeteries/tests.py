@@ -23,6 +23,11 @@ class MarkerTestCase(TestCase):
         marker = models.Marker.objects.get(markerid=6027)
         self.assertEqual(marker.__str__(), "Markerid: 6027 - Timberidge Cemetery")
 
+    def test_absolute_url(self):
+        """Verifying get_absolute_url returns the right url."""
+        marker = models.Marker.objects.get(markerid=6027)
+        self.assertEqual(marker.get_absolute_url(), "/marker/6027")
+
 
 class CemeteryTestCase(TestCase):
     def setUp(self):
@@ -32,6 +37,11 @@ class CemeteryTestCase(TestCase):
         """Verifying __str__ returns with proper formatting."""
         cemetery = models.Cemetery.objects.get(pk=1)
         self.assertEqual(cemetery.__str__(), "Timberidge Cemetery")
+
+    def test_absolute_url(self):
+        """Verifying get_absolute_url returns the right url."""
+        cemetery = models.Cemetery.objects.get(pk=1)
+        self.assertEqual(cemetery.get_absolute_url(), "/cemeteries/1")
 
 
 class PersonTestCase(TestCase):
@@ -43,6 +53,12 @@ class PersonTestCase(TestCase):
         person = models.Person.objects.get(first_name="Alonzo")
         r = "FullName : Alonzo Poole, Markerid: 6006 - Timberidge Cemetery Born: 11th January 1870 Died: 15th May 1935"
         self.assertEqual(person.__str__(), r)
+
+    def get_absolute_url(self):
+        """Verifying get_absolute_url returns the right url.
+        """
+        person = models.Person.objects.get(first_name="Alonzo")
+        self.assertEqual(person.get_absolute_url(), "/person/3")
 
 
 class ImageTestCase(TestCase):

@@ -1,0 +1,4 @@
+{{ object.symbology }}
+{% for marker in obj.markers.all %}
+{{ marker.markerid }}
+{% endfor %}

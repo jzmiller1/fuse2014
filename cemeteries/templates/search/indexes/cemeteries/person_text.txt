@@ -1,0 +1,8 @@
+{{ object.full_name }}
+{{ object.first_name }}
+{{ object.last_name }}
+{{ object.gender }}
+{{ object.veteran }}
+{{ object.b_year }}
+{{ object.d_year }}
+{{ object.footstoneI }}

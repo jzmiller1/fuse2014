@@ -33,6 +33,10 @@
   {% url "cemeteries:symbology" as symbology %}
   {% if back == symbology %}
   <a href="{{ back }}">Return to Symbology</a>
+  {% elif 'cemeteries.marker' in back %}
+     <a href="{{ back }}">Return to Search</a>
+  {% elif '/person/' in back %}
+     <a href="{{ back }}">Return to Person</a>
   {% else %}
     {% url 'cemeteries:person_lview' as people%}
    <a href="{{ people }}">Return to Person Index</a>

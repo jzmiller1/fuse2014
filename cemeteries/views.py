@@ -1,11 +1,12 @@
 from django.views import generic
 from .models import Cemetery, Marker, Person, Symbology, MarkerImage
 from django.db.models import Q
-# Create your views here.
+
 
 def get_rel_referer(referer):
     back = "/" + "/".join(referer.split('/')[3:])
     return back
+
 
 class MainView(generic.TemplateView):
     template_name = "cemeteries/mainpage.html"
