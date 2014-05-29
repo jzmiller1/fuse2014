@@ -3,8 +3,9 @@ django-bootstrap-static==3.1.1
 django-date-extensions==0.1dev
 django-fixture-media==0.1.4
 django-registration==1.0
-pillow==2.4.0
+django-geojson==2.4.0
 django-haystack==2.1.0
+pillow==2.4.0
 whoosh==2.6.0
 psycopg2==2.5.3
 postgresql==9.3
