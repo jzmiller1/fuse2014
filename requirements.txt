@@ -6,3 +6,9 @@ django-registration==1.0
 pillow==2.4.0
 django-haystack==2.1.0
 whoosh==2.6.0
+psycopg2==2.5.3
+postgresql==9.3
+postgis==2.1
+proj4==4.8.0
+geos==3.4.2
+gdal==1.11.0

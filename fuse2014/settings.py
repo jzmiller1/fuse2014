@@ -10,6 +10,8 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from fuse2014.generate_key import generate_key
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
@@ -20,7 +22,7 @@ MEDIA_URL = '/media/'
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 's#d^g38ilqks1v01=m6q$phe(b614yc+*qd7*)o_wu3k0h6eno'
+SECRET_KEY = '{}'.format(generate_key(40, 128))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     'cemeteries',
     'bootstrap',
     'registration',
@@ -58,6 +61,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 )
 
 ROOT_URLCONF = 'fuse2014.urls'
@@ -70,8 +74,12 @@ WSGI_APPLICATION = 'fuse2014.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': os.environ['fusedatabase'],
+        'USER': os.environ['fuseuser'],
+        'PASSWORD': os.environ['fusepassword'],
+        'HOST': 'localhost',
+        'PORT': 5432,
     }
 }
 

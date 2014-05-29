@@ -1,4 +1,4 @@
-from django.db import models
+from django.contrib.gis.db import models
 from django_date_extensions.fields import ApproximateDateField, ApproximateDate
 
 
@@ -28,8 +28,12 @@ class Marker(models.Model):
     markerid = models.IntegerField(primary_key=True)
     condition = models.CharField(max_length=15)
     readable = models.BooleanField(default=None)
-    epitaph = models.CharField(max_length=20)
+    epitaph = models.CharField(max_length=240)
     family_name = models.CharField(max_length=20)
+    lat = models.FloatField()
+    lon = models.FloatField()
+    point = models.PointField(srid=4326)
+    objects = models.GeoManager()
 
     def __str__(self):
         return "Markerid: {} - {}".format(self.markerid, self.cemetery)
@@ -58,9 +62,13 @@ class Person(models.Model):
     epitaph = models.TextField()
     footstone = models.BooleanField(default=None)
     footstoneI = models.TextField()
+    lat = models.FloatField()
+    lon = models.FloatField()
+    point = models.PointField(srid=4326)
+    objects = models.GeoManager()
 
     def __str__(self):
-        return "FullName : {0}, {1} Born: {2} Died: {3}".format(self.full_name, self.markerid, self.a_birth,self.a_death)
+        return "FullName : {0}, {1} Born: {2} Died: {3}".format(self.full_name, self.markerid, self.a_birth, self.a_death)
 
     def get_absolute_url(self):
         return "/person/{}".format(self.pk)
