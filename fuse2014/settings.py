@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'registration',
     'fixture_media',
     'haystack',
+    'djgeojson'
 )
 
 
@@ -75,9 +76,9 @@ WSGI_APPLICATION = 'fuse2014.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': os.environ['fusedatabase'],
-        'USER': os.environ['fuseuser'],
-        'PASSWORD': os.environ['fusepassword'],
+        'NAME': os.environ['FUSEDATABASE'],
+        'USER': os.environ['FUSEUSER'],
+        'PASSWORD': os.environ['FUSEPASSWORD'],
         'HOST': 'localhost',
         'PORT': 5432,
     }

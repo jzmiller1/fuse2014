@@ -123,3 +123,7 @@ class PeopleView(generic.TemplateView):
 class SymbologyView(generic.ListView):
     model = Symbology
     template_name = "cemeteries/symbology.html"
+
+
+class CemetereyMapView(generic.TemplateView):
+    template_name = "cemeteries/map.html"
