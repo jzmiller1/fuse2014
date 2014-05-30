@@ -29,7 +29,7 @@ class Marker(models.Model):
     condition = models.CharField(max_length=15)
     readable = models.BooleanField(default=None)
     epitaph = models.CharField(max_length=240)
-    family_name = models.CharField(max_length=20)
+    family_name = models.CharField(max_length=40)
     point = models.PointField(srid=4326)
     objects = models.GeoManager()
 
