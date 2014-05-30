@@ -17,8 +17,6 @@
              "readable": true,
              "epitaph": "",
              "family_name":"Poole",
-             "lat": 34.34227280870,
-             "lon":-83.69954490720,
              "point": "POINT(-83.69954490720 34.34227280870)"
         }
     },
@@ -31,8 +29,6 @@
              "readable": true,
              "epitaph": "Their trials ended their rest is won",
              "family_name":"Poole",
-             "lat": 34.34224704790,
-             "lon":-83.69954675720,
              "point": "POINT(-83.69954675720 34.34224704790)"
 
         }
@@ -46,8 +42,6 @@
              "readable": true,
              "epitaph": "May the resurrection find thee in the boson of thy God",
              "family_name":"Poole",
-             "lat": 34.34222186370,
-             "lon":-83.69955945790,
              "point": "POINT(-83.69955945790 34.34222186370)"
 
         }
@@ -61,8 +55,6 @@
              "readable": true,
              "epitaph": "CO I 24 GA INF CSA",
              "family_name":"Hawkins",
-             "lat": 34.34227999850,
-             "lon":-83.69957046260,
              "point": "POINT(-83.69957046260 34.34227999850)"
         }
     },
@@ -75,8 +67,6 @@
              "readable": true,
              "epitaph": "",
              "family_name":"Pool",
-             "lat": 34.34223926150,
-             "lon":-83.69959044940,
              "point": "POINT(-83.69959044940 34.34223926150 )"
         }
     },
@@ -98,8 +88,6 @@
             "epitaph":"",
             "footstone":false,
             "footstoneI":"",
-            "lat": 34.34226383560,
-            "lon":-83.69953207810,
             "point": "POINT(-83.69953207810 34.34226383560)"
         }
     },
@@ -121,8 +109,6 @@
             "epitaph":"",
             "footstone":true,
             "footstoneI": "MEP",
-            "lat": 34.34225516620,
-            "lon":-83.69953507130,
             "point": "POINT(-83.69953507130 34.34225516620)"
         }
     },
@@ -144,8 +130,6 @@
             "epitaph":"",
             "footstone":true,
             "footstoneI":"ADP",
-            "lat": 34.34224120480,
-            "lon":-83.69954116260,
             "point": "POINT(-83.69954116260 34.34224120480)"
         }
     },
@@ -167,8 +151,6 @@
             "epitaph":"Mother:Wife of William H H Poole",
             "footstone":true,
             "footstoneI":"",
-            "lat": 34.34222365480,
-            "lon":-83.69955057210,
             "point": "POINT(-83.69955057210 34.34222365480)"
         }
 
@@ -191,8 +173,6 @@
             "epitaph":"",
             "footstone":true,
             "footstoneI":"WHHP",
-            "lat": 34.34221520660,
-            "lon":-83.69955737390,
             "point": "POINT(-83.69955737390 34.34221520660)"
         }
     },
@@ -214,8 +194,6 @@
             "epitaph":"",
             "footstone":true,
             "footstoneI":"",
-            "lat": 34.34227167840,
-            "lon":-83.69956398690,
             "point": "POINT(-83.69956398690 34.34227167840)"
         }
     },
@@ -237,8 +215,6 @@
             "epitaph":"",
             "footstone":true,
             "footstoneI":"JCP",
-            "lat": 34.34225679000,
-            "lon":-83.69958153840,
             "point": "POINT(-83.69958153840 34.34225679000)"
         }
     },
@@ -259,8 +235,6 @@
             "epitaph":"",
             "footstone":true,
             "footstoneI":"",
-            "lat": 34.34223213690,
-            "lon":-83.69958350540,
             "point": "POINT(-83.69958350540 34.34223213690)"
         }
     },
@@ -281,8 +255,6 @@
             "epitaph":"",
             "footstone":true,
             "footstoneI":"SP",
-            "lat": 34.34221504970,
-            "lon":-83.69959572810,
             "point": "POINT(-83.69959572810 34.34221504970)"
         }
     },
