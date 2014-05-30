@@ -30,8 +30,6 @@ class Marker(models.Model):
     readable = models.BooleanField(default=None)
     epitaph = models.CharField(max_length=240)
     family_name = models.CharField(max_length=20)
-    lat = models.FloatField()
-    lon = models.FloatField()
     point = models.PointField(srid=4326)
     objects = models.GeoManager()
 
@@ -62,8 +60,6 @@ class Person(models.Model):
     epitaph = models.TextField()
     footstone = models.BooleanField(default=None)
     footstoneI = models.TextField()
-    lat = models.FloatField()
-    lon = models.FloatField()
     point = models.PointField(srid=4326)
     objects = models.GeoManager()
 
