@@ -5,7 +5,7 @@
 {% block content %}
   <font size="5" font face="Comic Sans MS">
     <h1><b>Explore the Symbology</b></h1><br>
-    {% for symbology in object_list %}
+    {% for symbology in object_list|dictsort:"symbology" %}
       <div class="row">
         <div class="col-md-3">
           <button class="btn btn-info btn-lg btn-block" data-toggle="collapse"
@@ -13,6 +13,7 @@
         </div>
         <div class="col-md-9">
           <div class="collapse" id="{{ symbology|slugify }}">
+           <font color="#00008b"> <a href="{% url 'cemeteries:symbolmap' pk=symbology.pk %}">View Symbology on Map</a> </font><br>
             {% for marker in symbology.markers.all %}
               <a href="{% url 'cemeteries:marker_dview' pk=marker.pk %}">{{ marker.markerid }}</a>
             {% endfor %}

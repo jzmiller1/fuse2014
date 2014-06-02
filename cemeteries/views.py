@@ -91,6 +91,7 @@ class AboutView(generic.TemplateView):
 class PeopleView(generic.TemplateView):
     template_name = "cemeteries/people_view.html"
 
+
     def get_context_data(self, **kwargs):
         context = super(PeopleView, self).get_context_data(**kwargs)
         groups = [['A', 'B ', 'C'], ['D', 'E', 'F'], ['G', 'H', 'I'], ['J', 'K', 'L'],
@@ -125,5 +126,20 @@ class SymbologyView(generic.ListView):
     template_name = "cemeteries/symbology.html"
 
 
-class CemetereyMapView(generic.TemplateView):
-    template_name = "cemeteries/map.html"
+class MarkerMapView(generic.TemplateView):
+    template_name = "cemeteries/marker_map.html"
+
+
+class PersonMapView(generic.TemplateView):
+    template_name= "cemeteries/person_map.html"
+
+
+class SymbolMapView(generic.TemplateView):
+    template_name = "cemeteries/symbol_map.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(SymbolMapView, self).get_context_data(**kwargs)
+        symbol = Symbology.objects.filter(pk=kwargs['pk']).first()
+        context['markers'] = symbol.markers.all()
+        context['symbol'] = symbol.symbology
+        return context

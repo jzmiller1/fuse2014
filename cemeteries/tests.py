@@ -1,7 +1,8 @@
 from django.test import TestCase
 from django.core.urlresolvers import resolve, reverse
 from .views import MainView, CemeteryListView, CemeteryDetailView, MarkerListView, MarkerDetailView
-from .views import PersonListView, PersonDetailView, AboutView, SymbologyView, PeopleView, CemetereyMapView
+from .views import PersonListView, PersonDetailView, AboutView, SymbologyView, PeopleView, MarkerMapView, PersonMapView
+from .views import SymbolMapView
 from djgeojson.views import GeoJSONLayerView
 from cemeteries import models
 
@@ -134,10 +135,20 @@ class UrlTests(TestCase):
         return self.assertEqual(symbology.func.__name__,
                                 SymbologyView.__name__)
 
-    def test_cemeterymap_url(self):
-        map = resolve(reverse('cemeteries:map'))
+    def test_markermap_url(self):
+        map = resolve(reverse('cemeteries:markermap'))
         return self.assertEqual(map.func.__name__,
-                                CemetereyMapView.__name__)
+                                MarkerMapView.__name__)
+
+    def test_personmap_url(self):
+        map = resolve(reverse('cemeteries:personmap'))
+        return self.assertEqual(map.func.__name__,
+                                PersonMapView.__name__)
+
+    def test_symbolmap_url(self):
+        map = resolve(reverse('cemeteries:symbolmap', kwargs={'pk': 1}))
+        return self.assertEqual(map.func.__name__,
+                                SymbolMapView.__name__)
 
     def test_geo_marker(self):
         geo = resolve(reverse('cemeteries:markerdata'))

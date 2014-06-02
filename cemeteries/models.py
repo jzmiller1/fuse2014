@@ -1,5 +1,5 @@
 from django.contrib.gis.db import models
-from django_date_extensions.fields import ApproximateDateField, ApproximateDate
+from django_date_extensions.fields import ApproximateDateField
 
 
 class Cemetery(models.Model):
