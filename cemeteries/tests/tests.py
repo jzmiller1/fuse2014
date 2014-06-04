@@ -1,9 +1,9 @@
 from django.test import TestCase
 from django.core.urlresolvers import resolve, reverse
-from .views import MainView, CemeteryListView, CemeteryDetailView, MarkerListView, MarkerDetailView
-from .views import PersonListView, PersonDetailView, AboutView, SymbologyView, PeopleView, MarkerMapView, PersonMapView
-from .views import SymbolMapView
-from djgeojson.views import GeoJSONLayerView
+from cemeteries.views import MainView, CemeteryListView, CemeteryDetailView, MarkerListView, MarkerDetailView
+from cemeteries.views import PersonListView, PersonDetailView, AboutView, SymbologyView, PeopleView, MarkerMapView, PersonMapView
+from cemeteries.views import SymbolMapView
+from cemeteries.json_views import PeopleCollection, PersonCollection, MarkersCollection, MarkerCollection
 from cemeteries import models
 
 
@@ -150,12 +150,22 @@ class UrlTests(TestCase):
         return self.assertEqual(map.func.__name__,
                                 SymbolMapView.__name__)
 
-    def test_geo_marker(self):
-        geo = resolve(reverse('cemeteries:markerdata'))
-        return self.assertEqual(geo.func.__name__,
-                                GeoJSONLayerView.__name__)
+    def test_api_people(self):
+        people = resolve(reverse('cemeteries_api:people_collection'))
+        return self.assertEqual(people.func.__name__,
+                                PeopleCollection.__name__)
 
-    def test_geo_person(self):
-        geo = resolve(reverse('cemeteries:persondata'))
-        return self.assertEqual(geo.func.__name__,
-                                GeoJSONLayerView.__name__)
+    def test_api_person(self):
+        person = resolve(reverse('cemeteries_api:person_collection', kwargs={'pk': 1}))
+        return self.assertEqual(person.func.__name__,
+                                PersonCollection.__name__)
+
+    def test_api_markers(self):
+        markers = resolve(reverse('cemeteries_api:markers_collection'))
+        return self.assertEqual(markers.func.__name__,
+                                MarkersCollection.__name__)
+
+    def test_api_marker(self):
+        marker = resolve(reverse('cemeteries_api:marker_collection', kwargs={'pk': 1}))
+        return self.assertEqual(marker.func.__name__,
+                                MarkerCollection.__name__)

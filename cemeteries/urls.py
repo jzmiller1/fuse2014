@@ -23,8 +23,5 @@ urlpatterns = patterns('',
     url(r'^symbology/$', login_required(SymbologyView.as_view(model=Symbology)), name='symbology'),
     url(r'^map_marker/$', login_required(MarkerMapView.as_view()), name='markermap'),
     url(r'^map_person/$', login_required(PersonMapView.as_view()), name='personmap'),
-    url(r'^marker.geojson$', GeoJSONLayerView.as_view(model=Marker, geometry_field='point', properties=('markerid', 'family_name')), name='markerdata'),
-    url(r'^person.geojson$', GeoJSONLayerView.as_view(model=Person, geometry_field='point', properties=('full_name', 'gender')), name='persondata'),
-    url(r'^symbolmap/(?P<pk>\d+)/$', login_required(SymbolMapView.as_view()), name='symbolmap')
-
+    url(r'^symbolmap/(?P<pk>\d+)/$', login_required(SymbolMapView.as_view()), name='symbolmap'),
 )
