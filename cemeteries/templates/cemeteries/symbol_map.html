@@ -41,7 +41,7 @@
     ]);
 
 
-    L.geoJson({{ markers|geojsonfeature:"point"|safe }}, {pointToLayer: function (feature, latlng) {
+    L.geoJson({{ markers|geojsonfeature:"markerid:point"|safe }}, {pointToLayer: function (feature, latlng) {
             return L.circleMarker(latlng, ouricon);
         },
         onEachFeature: function (feature, layer) {
@@ -52,7 +52,7 @@
 
     var popup = L.popup()
          .setLatLng(e.latlng)
-         .setContent("<p>" + "{{ symbol }}"+ "</p>")
+         .setContent("<p>" + properties.markerid + "</p>")
          .openOn(map);
                 });
 

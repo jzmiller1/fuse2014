@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('cemeteries.urls', namespace='cemeteries')),
+    url(r'^api/v1/', include('cemeteries.api_urls', namespace='cemeteries_api')),
     url(r'^search/', include('haystack.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

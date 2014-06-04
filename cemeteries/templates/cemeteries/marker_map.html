@@ -41,7 +41,7 @@
     ]);
 
 
-    $.getJSON("{% url 'cemeteries:markerdata' %}", function (data) {
+    $.getJSON("{% url 'cemeteries_api:markers_collection' %}", function (data) {
       L.geoJson(data, {pointToLayer: function (feature, latlng) {
             return L.circleMarker(latlng, ouricon);
         },
@@ -53,7 +53,7 @@
 
     var popup = L.popup()
          .setLatLng(e.latlng)
-         .setContent("<p>" + properties.family_name + "</p>")
+         .setContent('<a href="/marker/' + feature.id + '">' + properties.family_name + '</a>')
          .openOn(map);
                 });
 

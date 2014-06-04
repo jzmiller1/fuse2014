@@ -47,7 +47,9 @@ INSTALLED_APPS = (
     'registration',
     'fixture_media',
     'haystack',
-    'djgeojson'
+    'djgeojson',
+    'rest_framework',
+    'rest_framework_gis',
 )
 
 
