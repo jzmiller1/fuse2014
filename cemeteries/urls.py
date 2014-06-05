@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'fuse2014.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^main$', MainView.as_view(), name='main'),
+    url(r'^$', MainView.as_view(), name='main'),
     url(r'^about/$', AboutView.as_view(), name='about'),
     url(r'^cemeteries/$', CemeteryListView.as_view(model=Cemetery), name='cem_lview'),
     url(r'^cemeteries/(?P<pk>\d+)/$', CemeteryDetailView.as_view(), name='cem_dview'),
