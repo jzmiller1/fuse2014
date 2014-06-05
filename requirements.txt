@@ -15,3 +15,4 @@ postgis==2.1
 proj4==4.8.0
 geos==3.4.2
 gdal==1.11.0
+libjpeg62-dev

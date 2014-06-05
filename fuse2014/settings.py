@@ -26,7 +26,7 @@ MEDIA_URL = '/media/'
 SECRET_KEY = '{}'.format(generate_key(40, 128))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
