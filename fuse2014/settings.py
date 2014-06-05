@@ -30,7 +30,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['theyburied.us,', '107.170.3.46']
+ALLOWED_HOSTS = ['.theyburied.us', '107.170.3.46']
 
 
 # Application definition
