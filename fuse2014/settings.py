@@ -16,6 +16,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 MEDIA_URL = '/media/'
 
 # Quick-start development settings - unsuitable for production
