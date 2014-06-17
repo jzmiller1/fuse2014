@@ -7,7 +7,7 @@ class PersonSerializer(serializers.GeoFeatureModelSerializer):
     class Meta:
         model = Person
         geo_field = "point"
-        fields = ('id', 'markerid', 'full_name', 'first_name', 'last_name', 'gender', 'veteran', 'b_year',
+        fields = ('markerid', 'full_name', 'first_name', 'last_name', 'gender', 'veteran', 'b_year',
                     'd_year', 'a_birth', 'a_death', 'epitaph', 'footstone', 'footstoneI')
 
 

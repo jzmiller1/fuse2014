@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load geojson_tags %}
 {% block title %}Map {% endblock %}
 {% block morehead %}
 <meta name='viewport' content='initial-scale=18,maximum-scale=22,user-scalable=yes' />
@@ -41,7 +40,8 @@
     ]);
 
 
-    L.geoJson({{ markers|geojsonfeature:"markerid:point"|safe }}, {pointToLayer: function (feature, latlng) {
+    $.getJSON('{{ markers }}', function (data) {
+      L.geoJson(data, {pointToLayer: function (feature, latlng) {
             return L.circleMarker(latlng, ouricon);
         },
         onEachFeature: function (feature, layer) {
@@ -52,13 +52,16 @@
 
     var popup = L.popup()
          .setLatLng(e.latlng)
-         .setContent("<p>" + properties.markerid + "</p>")
+         .setContent('<a href="/marker/' + feature.id + '">' + properties.family_name + '</a>')
          .openOn(map);
                 });
 
                 })(layer, feature.properties);
         },
         style: ouricon}).addTo(map);
+
+
+    });
 
 </script>
 {% endblock %}

@@ -140,6 +140,6 @@ class SymbolMapView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(SymbolMapView, self).get_context_data(**kwargs)
         symbol = Symbology.objects.filter(pk=kwargs['pk']).first()
-        context['markers'] = symbol.markers.all()
+        context['markers'] = "/api/v1/markers?markerid=" + ",".join([str(marker.markerid) for marker in symbol.markers.all()])
         context['symbol'] = symbol.symbology
         return context
