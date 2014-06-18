@@ -93,3 +93,16 @@ class Symbology(models.Model):
 
     def __str__(self):
         return "{0}".format(self.symbology)
+
+
+class WWDC(models.Model):
+    """ World War Drafting Cards FileField
+
+    Represents a PDF file of the card.
+
+    """
+    person = models.ForeignKey(Person)
+    pdf = models.FileField(upload_to='draft_cards/')
+
+    def __str__(self):
+        return "{0}".format(self.person.full_name)

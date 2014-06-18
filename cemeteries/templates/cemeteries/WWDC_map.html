@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}Map {% endblock %}
+{% block morehead %}
+<meta name='viewport' content='initial-scale=18,maximum-scale=22,user-scalable=yes' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
+{% endblock %}
+
+{% block content %}
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:52px; right:10px; left:0; bottom:0; width:100%; }
+</style>
+
+  <div id='map'></div>
+
+
+{% endblock %}
+
+{% block scriptspace %}
+<script>
+
+    var ouricon = {
+            radius: 6,
+            fillColor: "blue",
+            color: "red",
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.5
+    };
+
+    var map =  L.mapbox.map('map', 'zmiller1.icc1cno8');
+    map.fitBounds([
+    [34.345, -83.71],
+    [34.34, -83.690]
+    ]);
+    map.setMaxBounds([
+    [34.345, -83.71],
+    [34.34, -83.690]
+    ]);
+
+
+    $.getJSON('{{ people }}', function (data) {
+      L.geoJson(data, {pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng, ouricon);
+        },
+        onEachFeature: function (feature, layer) {
+            (function(layer, properties) {
+                layer.on("click", function (e) {
+
+
+
+    var popup = L.popup()
+         .setLatLng(e.latlng)
+         .setContent('<a href="/person/' + feature.id + '">' + properties.full_name + '</a>')
+         .openOn(map);
+                });
+
+                })(layer, feature.properties);
+        },
+        style: ouricon}).addTo(map);
+
+
+    });
+
+</script>
+{% endblock %}

@@ -70,7 +70,18 @@
              "point": "POINT(-83.69959044940 34.34223926150 )"
         }
     },
-
+    {
+    "model": "cemeteries.marker",
+    "fields": {
+            "cemetery": 1,
+             "markerid": 6034,
+             "condition": "Aged",
+             "readable": true,
+             "epitaph": "We'll join thee in that heavenly land, no more to take the parting hand",
+             "family_name":"Poole",
+             "point": "POINT(-83.69958129077585 34.34233654563496)"
+        }
+    },
     {
     "model": "cemeteries.person",
     "pk": 1,
@@ -258,7 +269,26 @@
             "point": "POINT(-83.69959572810 34.34221504970)"
         }
     },
-
+    {
+    "model": "cemeteries.person",
+    "pk":10,
+    "fields": {
+            "markerid": 6034,
+            "full_name":"Ben Poole",
+            "first_name":"Ben",
+            "last_name":"Poole",
+            "gender":"Male",
+            "veteran":"unknown",
+            "b_year":"1877",
+            "d_year":"1963",
+            "a_birth":"1877-08-05",
+            "a_death":"1963-05-31",
+            "epitaph":"",
+            "footstone":false,
+            "footstoneI":"",
+            "point": "POINT(-83.69958129077585 34.34233654563496)"
+        }
+    },
 
     {
         "model":"cemeteries.symbology",
@@ -337,6 +367,13 @@
         "fields":{
             "markerid": 6028,
             "image":"images/6028Crop.jpg"
+        }
+    },
+        {
+        "model":"cemeteries.wwdc",
+        "fields":{
+            "person": 10,
+            "pdf":"wwdc/417_Poole.pdf"
         }
     }
 ]
