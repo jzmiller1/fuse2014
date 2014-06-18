@@ -48,7 +48,6 @@ INSTALLED_APPS = (
     'registration',
     'fixture_media',
     'haystack',
-    'djgeojson',
     'rest_framework',
     'rest_framework_gis',
 )
@@ -111,4 +110,8 @@ HAYSTACK_CONNECTIONS = {
         'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
         'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
     },
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',)
 }
