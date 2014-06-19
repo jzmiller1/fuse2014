@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.core.urlresolvers import resolve, reverse
 from cemeteries.views import MainView, CemeteryListView, CemeteryDetailView, MarkerListView, MarkerDetailView
 from cemeteries.views import PersonListView, PersonDetailView, AboutView, SymbologyView, PeopleView, MarkerMapView, PersonMapView
-from cemeteries.views import SymbolMapView
+from cemeteries.views import SymbolMapView, WWDCView, WWDCMapView
 from cemeteries.json_views import PeopleCollection, PersonCollection, MarkersCollection, MarkerCollection
 from cemeteries import models
 
@@ -57,8 +57,7 @@ class PersonTestCase(TestCase):
         self.assertEqual(person.__str__(), r)
 
     def get_absolute_url(self):
-        """Verifying get_absolute_url returns the right url.
-        """
+        """Verifying get_absolute_url returns the right url."""
         person = models.Person.objects.get(first_name="Alonzo")
         self.assertEqual(person.get_absolute_url(), "/person/3")
 
@@ -70,6 +69,16 @@ class ImageTestCase(TestCase):
     def test_image_string(self):
         image = models.MarkerImage.objects.get(markerid=6006)
         self.assertEqual(image.__str__(), "Markerid: 6006 - Timberidge Cemetery")
+
+
+class WWDCTestCase(TestCase):
+    """ Verifying __str__ returns with proper formatting."""
+    def setUp(self):
+        pass
+
+    def test_wwdc_string(self):
+        draft = models.WWDC.objects.get(person_id=10)
+        self.assertEqual(draft.__str__(), "Ben Poole")
 
 
 class SymbologyTestCase(TestCase):
@@ -169,3 +178,13 @@ class UrlTests(TestCase):
         marker = resolve(reverse('cemeteries_api:marker_collection', kwargs={'pk': 1}))
         return self.assertEqual(marker.func.__name__,
                                 MarkerCollection.__name__)
+
+    def test_wwdc_url(self):
+        draft = resolve(reverse('cemeteries:WWDC_view'))
+        return self.assertEqual(draft.func.__name__,
+                                WWDCView.__name__)
+
+    def test_wwdcmap_url(self):
+        draft = resolve(reverse('cemeteries:WWDC_map'))
+        return self.assertEqual(draft.func.__name__,
+                                WWDCMapView.__name__)

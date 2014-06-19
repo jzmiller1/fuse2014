@@ -1,5 +1,6 @@
+import datetime
 from django.views import generic
-from .models import Cemetery, Marker, Person, Symbology, MarkerImage
+from .models import Cemetery, Marker, Person, Symbology, MarkerImage, WWDC
 from django.db.models import Q
 
 
@@ -81,6 +82,8 @@ class PersonDetailView(generic.TemplateView):
         if refer is not None:
             context['back'] = get_rel_referer(refer)
         context['person'] = person
+        card = WWDC.objects.filter(person=person).first()
+        context['wwdc'] = card
         return context
 
 
@@ -142,4 +145,28 @@ class SymbolMapView(generic.TemplateView):
         symbol = Symbology.objects.filter(pk=kwargs['pk']).first()
         context['markers'] = "/api/v1/markers?markerid=" + ",".join([str(marker.markerid) for marker in symbol.markers.all()])
         context['symbol'] = symbol.symbology
+        return context
+
+
+class WWDCView(generic.TemplateView):
+    template_name = "cemeteries/wwdc.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(WWDCView, self).get_context_data(**kwargs)
+        draft = Person.objects.filter(gender='Male').exclude(a_birth__gt=datetime.datetime(1900, 9, 12).strftime("%Y-%m-%d"))
+        draft = draft.exclude(a_birth__lt=datetime.datetime(1873, 9, 12).strftime("%Y-%m-%d"))
+        for draftee in draft:
+            card = WWDC.objects.filter(person=draftee)
+            draftee.wwdc = card.first()
+        context['draft'] = draft
+        return context
+
+
+class WWDCMapView(generic.TemplateView):
+    template_name = "cemeteries/WWDC_map.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(WWDCMapView, self).get_context_data(**kwargs)
+        people = [str(card.person.pk) for card in WWDC.objects.all()]
+        context['people'] = "/api/v1/people?id=" + ",".join(people)
         return context

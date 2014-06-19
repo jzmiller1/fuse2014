@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 
 {% block title %}Person{% endblock %}
@@ -23,7 +24,11 @@
           <b>Died:</b> {{ person.a_death }}<br>
           <b>Epitaph:</b> {{ person.epitaph }}<br>
           <b>Footstone:</b> {{ person.footstone }}<br>
-          <b>Footstone Epitaph:</b> {{ person.footstoneI }}<br></p>
+          <b>Footstone Epitaph:</b> {{ person.footstoneI }}<br>
+        {% if wwdc %}
+          <br><a href="{{ MEDIA_URL }}{{ wwdc.pdf }}"><img src="{% static "cemeteries/pdf.ico" %}" height="24"
+                                                                  width="24"> Go to WWI Draft Card</a></p>
+        {% endif %}
   </font>
   </div>
   </div>

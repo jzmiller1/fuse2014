@@ -22,8 +22,8 @@
 
     var ouricon = {
             radius: 6,
-            fillColor: "#DF0101",
-            color: "#610B0B",
+            fillColor: "#0B4C5F",
+            color: "#0A2A29",
             weight: 1,
             opacity: 1,
             fillOpacity: 0.7
@@ -40,7 +40,7 @@
     ]);
 
 
-    $.getJSON('{{ markers }}', function (data) {
+    $.getJSON('{{ people }}', function (data) {
       L.geoJson(data, {pointToLayer: function (feature, latlng) {
             return L.circleMarker(latlng, ouricon);
         },
@@ -52,7 +52,7 @@
 
     var popup = L.popup()
          .setLatLng(e.latlng)
-         .setContent('<a href="/marker/' + feature.id + '">' + properties.family_name + '</a>')
+         .setContent('<a href="/person/' + feature.id + '">' + properties.full_name + '</a>')
          .openOn(map);
                 });
 

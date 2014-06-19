@@ -23,10 +23,11 @@ class MarkerFilter(django_filters.FilterSet):
 
 class PersonFilter(django_filters.FilterSet):
     markerid = IntegerListFilter(name='markerid', lookup_type='in')
+    id = IntegerListFilter(name='id', lookup_type='in')
 
     class Meta:
         model = Person
-        fields = ['markerid', 'full_name', 'first_name', 'last_name', 'gender', 'veteran', 'b_year',
+        fields = ['id', 'markerid', 'full_name', 'first_name', 'last_name', 'gender', 'veteran', 'b_year',
                   'd_year', 'a_birth', 'a_death', 'epitaph', 'footstone', 'footstoneI']
 
 

@@ -1,0 +1,107 @@
+[
+    {
+        "model":"cemeteries.wwdc",
+        "fields":{
+            "person": 102,
+            "pdf":"wwdc/102_Hawkins.pdf"
+        }
+    },
+        {
+        "model":"cemeteries.wwdc",
+        "fields":{
+            "person": 139,
+            "pdf":"wwdc/139_Harris.pdf"
+        }
+    },
+        {
+        "model":"cemeteries.wwdc",
+        "fields":{
+            "person": 230,
+            "pdf":"wwdc/230_Latty.pdf"
+        }
+    },
+        {
+        "model":"cemeteries.wwdc",
+        "fields":{
+            "person": 239,
+            "pdf":"wwdc/239_Chapman.pdf"
+        }
+    },
+        {
+        "model":"cemeteries.wwdc",
+        "fields":{
+            "person": 259,
+            "pdf":"wwdc/259_Poole.pdf"
+        }
+    },
+        {
+        "model":"cemeteries.wwdc",
+        "fields":{
+            "person": 262,
+            "pdf":"wwdc/262_Dyer.pdf"
+        }
+    },
+        {
+        "model":"cemeteries.wwdc",
+        "fields":{
+            "person": 280,
+            "pdf":"wwdc/280_Adams.pdf"
+        }
+    },
+        {
+        "model":"cemeteries.wwdc",
+        "fields":{
+            "person": 282,
+            "pdf":"wwdc/282_Poole.pdf"
+        }
+    },
+        {
+        "model":"cemeteries.wwdc",
+        "fields":{
+            "person": 287,
+            "pdf":"wwdc/287_Abernathy.pdf"
+        }
+    },
+        {
+        "model":"cemeteries.wwdc",
+        "fields":{
+            "person": 323,
+            "pdf":"wwdc/323_Cagle.pdf"
+        }
+    },
+        {
+        "model":"cemeteries.wwdc",
+        "fields":{
+            "person": 335,
+            "pdf":"wwdc/335_Poole.pdf"
+        }
+    },
+        {
+        "model":"cemeteries.wwdc",
+        "fields":{
+            "person": 371,
+            "pdf":"wwdc/371_Butterworth.pdf"
+        }
+    },
+        {
+        "model":"cemeteries.wwdc",
+        "fields":{
+            "person": 381,
+            "pdf":"wwdc/381_Poole.pdf"
+        }
+    },
+        {
+        "model":"cemeteries.wwdc",
+        "fields":{
+            "person": 396,
+            "pdf":"wwdc/396_Latty.pdf"
+        }
+    },
+        {
+        "model":"cemeteries.wwdc",
+        "fields":{
+            "person": 417,
+            "pdf":"wwdc/417_Poole.pdf"
+        }
+    }
+]
