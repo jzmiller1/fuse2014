@@ -153,12 +153,44 @@ class WWDCView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(WWDCView, self).get_context_data(**kwargs)
-        draft = Person.objects.filter(gender='Male').exclude(a_birth__gt=datetime.datetime(1900, 9, 12).strftime("%Y-%m-%d"))
-        draft = draft.exclude(a_birth__lt=datetime.datetime(1873, 9, 12).strftime("%Y-%m-%d"))
-        for draftee in draft:
+        draft1 = Person.objects.filter(gender='Male').exclude(a_birth__gt=datetime.datetime(1896, 6, 5).isoformat().split('T')[0])
+        draft1 = draft1.exclude(a_birth__lt=datetime.datetime(1886, 6, 5).isoformat().split('T')[0])
+        draft1 = draft1.exclude(a_death__lt=datetime.datetime(1917, 6, 5).isoformat().split('T')[0])
+        for draftee in draft1:
             card = WWDC.objects.filter(person=draftee)
             draftee.wwdc = card.first()
-        context['draft'] = draft
+
+        draft2 = Person.objects.filter(gender='Male').exclude(a_birth__gt=datetime.datetime(1897, 6, 6).isoformat().split('T')[0])
+        draft2 = draft2.exclude(a_birth__lt=datetime.datetime(1896, 6, 6).isoformat().split('T')[0])
+        draft2 = draft2.exclude(a_death__lt=datetime.datetime(1918, 6, 5).isoformat().split('T')[0])
+        draft2 = draft2.exclude(id__in=draft1.values('pk'))
+        for draftee in draft2:
+            card = WWDC.objects.filter(person=draftee)
+            draftee.wwdc = card.first()
+
+        draft3 = Person.objects.filter(gender='Male').exclude(a_birth__gt=datetime.datetime(1897, 8, 24).isoformat().split('T')[0])
+        draft3 = draft3.exclude(a_birth__lt=datetime.datetime(1897, 6, 6).isoformat().split('T')[0])
+        draft3 = draft3.exclude(a_death__lt=datetime.datetime(1918, 6, 6).isoformat().split('T')[0])
+        draft3 = draft3.exclude(id__in=draft1.values('pk'))
+        draft3 = draft3.exclude(id__in=draft2.values('pk'))
+        for draftee in draft3:
+            card = WWDC.objects.filter(person=draftee)
+            draftee.wwdc = card.first()
+
+        draft4 = Person.objects.filter(gender='Male').exclude(a_birth__gt=datetime.datetime(1900, 9, 12).isoformat().split('T')[0])
+        draft4 = draft4.exclude(a_birth__lt=datetime.datetime(1873, 9, 12).isoformat().split('T')[0])
+        draft4 = draft4.exclude(a_death__lt=datetime.datetime(1918, 9, 12).isoformat().split('T')[0])
+        draft4 = draft4.exclude(id__in=draft1.values('pk'))
+        draft4 = draft4.exclude(id__in=draft2.values('pk'))
+        draft4 = draft4.exclude(id__in=draft3.values('pk'))
+        for draftee in draft4:
+            card = WWDC.objects.filter(person=draftee)
+            draftee.wwdc = card.first()
+
+        context['draft1'] = draft1
+        context['draft2'] = draft2
+        context['draft3'] = draft3
+        context['draft4'] = draft4
         return context
 
 
