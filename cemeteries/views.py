@@ -153,44 +153,30 @@ class WWDCView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(WWDCView, self).get_context_data(**kwargs)
-        draft1 = Person.objects.filter(gender='Male').exclude(a_birth__gt=datetime.datetime(1896, 6, 5).isoformat().split('T')[0])
-        draft1 = draft1.exclude(a_birth__lt=datetime.datetime(1886, 6, 5).isoformat().split('T')[0])
-        draft1 = draft1.exclude(a_death__lt=datetime.datetime(1917, 6, 5).isoformat().split('T')[0])
-        for draftee in draft1:
-            card = WWDC.objects.filter(person=draftee)
-            draftee.wwdc = card.first()
 
-        draft2 = Person.objects.filter(gender='Male').exclude(a_birth__gt=datetime.datetime(1897, 6, 6).isoformat().split('T')[0])
-        draft2 = draft2.exclude(a_birth__lt=datetime.datetime(1896, 6, 6).isoformat().split('T')[0])
-        draft2 = draft2.exclude(a_death__lt=datetime.datetime(1918, 6, 5).isoformat().split('T')[0])
-        draft2 = draft2.exclude(id__in=draft1.values('pk'))
-        for draftee in draft2:
-            card = WWDC.objects.filter(person=draftee)
-            draftee.wwdc = card.first()
+        def get_eligible(draft, registrations):
+            eligible = Person.objects.filter(gender='Male')
+            eligible = eligible.exclude(a_birth__gt=draft[0].isoformat().split('T')[0])
+            eligible = eligible.exclude(a_birth__lt=draft[1].isoformat().split('T')[0])
+            eligible = eligible.exclude(a_death__lt=draft[2].isoformat().split('T')[0])
+            for registration in registrations:
+                eligible = eligible.exclude(id__in=registration.values('pk'))
+            for registrant in eligible:
+                card = WWDC.objects.filter(person=registrant)
+                registrant.wwdc = card.first()
+            return eligible
 
-        draft3 = Person.objects.filter(gender='Male').exclude(a_birth__gt=datetime.datetime(1897, 8, 24).isoformat().split('T')[0])
-        draft3 = draft3.exclude(a_birth__lt=datetime.datetime(1897, 6, 6).isoformat().split('T')[0])
-        draft3 = draft3.exclude(a_death__lt=datetime.datetime(1918, 6, 6).isoformat().split('T')[0])
-        draft3 = draft3.exclude(id__in=draft1.values('pk'))
-        draft3 = draft3.exclude(id__in=draft2.values('pk'))
-        for draftee in draft3:
-            card = WWDC.objects.filter(person=draftee)
-            draftee.wwdc = card.first()
+        first_registration = (datetime.datetime(1896, 6, 5), datetime.datetime(1886, 6, 5), datetime.datetime(1917, 6, 5))
+        second_registration = (datetime.datetime(1897, 6, 6), datetime.datetime(1896, 6, 6), datetime.datetime(1918, 6, 5))
+        supplemental_registration = (datetime.datetime(1897, 8, 24), datetime.datetime(1897, 6, 6), datetime.datetime(1918, 6, 6))
+        third_registration = (datetime.datetime(1900, 9, 12), datetime.datetime(1873, 9, 12), datetime.datetime(1918, 9, 12))
+        registrations = [first_registration, second_registration, supplemental_registration, third_registration]
+        registration_data = []
 
-        draft4 = Person.objects.filter(gender='Male').exclude(a_birth__gt=datetime.datetime(1900, 9, 12).isoformat().split('T')[0])
-        draft4 = draft4.exclude(a_birth__lt=datetime.datetime(1873, 9, 12).isoformat().split('T')[0])
-        draft4 = draft4.exclude(a_death__lt=datetime.datetime(1918, 9, 12).isoformat().split('T')[0])
-        draft4 = draft4.exclude(id__in=draft1.values('pk'))
-        draft4 = draft4.exclude(id__in=draft2.values('pk'))
-        draft4 = draft4.exclude(id__in=draft3.values('pk'))
-        for draftee in draft4:
-            card = WWDC.objects.filter(person=draftee)
-            draftee.wwdc = card.first()
+        for registration in registrations:
+            registration_data.append(get_eligible(registration, registration_data))
 
-        context['draft1'] = draft1
-        context['draft2'] = draft2
-        context['draft3'] = draft3
-        context['draft4'] = draft4
+        context['registrations'] = registration_data
         return context
 
 
