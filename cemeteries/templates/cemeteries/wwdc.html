@@ -15,68 +15,22 @@
       through 45.<br>
       <a href="{% url 'cemeteries:WWDC_map' %}">Click to View World War I Draftees on Map</a></p><br>
     {% for registration in registrations %}
-      {% ifequal forloop.counter 1 %}
+      {% if forloop.counter == 1 %}
         <h2>The following people were included in the first WWI registration on June 5, 1917 for men between the ages of
           18 and 21:</h2>
-        {% for person in registration|dictsort:"full_name" %}
-          {% if person.wwdc.pdf %}
-            <p><b>{{ person.full_name }}</b>
-              <br> Born: {{ person.a_birth }}
-              <br> Died: {{ person.a_death }}
-              <br><a href="{{ MEDIA_URL }}{{ person.wwdc.pdf }}"><img src="{% static "cemeteries/pdf.ico" %}"
-                                                                      height="24"
-                                                                      width="24"> Go to Card</a></p>
-          {% else %}
-            <p><b>{{ person.full_name }}</b>
-              <br> Born: {{ person.a_birth }}
-              <br> Died: {{ person.a_death }}
-              <br> No Card Available</p>
-          {% endif %}
-        {% endfor %}
-      {% endifequal %}
-      {% ifequal forloop.counter 2 %}
+        {% elif forloop.counter == 2 %}
         <h2>The following people were included in the second WWI registration on June 5, 1918 for men between the ages
           of 18
           and 21:</h2>
-        {% for person in registration|dictsort:"full_name" %}
-          {% if person.wwdc.pdf %}
-            <p><b>{{ person.full_name }}</b>
-              <br> Born: {{ person.a_birth }}
-              <br> Died: {{ person.a_death }}
-              <br><a href="{{ MEDIA_URL }}{{ person.wwdc.pdf }}"><img src="{% static "cemeteries/pdf.ico" %}"
-                                                                      height="24"
-                                                                      width="24"> Go to Card</a></p>
-          {% else %}
-            <p><b>{{ person.full_name }}</b>
-              <br> Born: {{ person.a_birth }}
-              <br> Died: {{ person.a_death }}
-              <br> No Card Available</p>
-          {% endif %}
-        {% endfor %}
-      {% endifequal %}
-      {% ifequal forloop.counter 3 %}
+        {% elif forloop.counter == 3 %}
         <h2>The following people were included in the supplemental registration on August 24,1918 for men who turned 21
           after June 5, 1918:</h2>
-        {% for person in registration|dictsort:"full_name" %}
-          {% if person.wwdc.pdf %}
-            <p><b>{{ person.full_name }}</b>
-              <br> Born: {{ person.a_birth }}
-              <br> Died: {{ person.a_death }}
-              <br><a href="{{ MEDIA_URL }}{{ person.wwdc.pdf }}"><img src="{% static "cemeteries/pdf.ico" %}"
-                                                                      height="24"
-                                                                      width="24"> Go to Card</a></p>
-          {% else %}
-            <p><b>{{ person.full_name }}</b>
-              <br> Born: {{ person.a_birth }}
-              <br> Died: {{ person.a_death }}
-              <br> No Card Available</p>
-          {% endif %}
-        {% endfor %}
-      {% endifequal %}
-      {% ifequal forloop.counter 4 %}
-        <h2>The following people were included in the third WWI registration on September 12, 1918 for men who were
+        {% elif forloop.counter == 4 %}
+         <h2>The following people were included in the third WWI registration on September 12, 1918 for men who were
           between
           the ages of 18 and 45:</h2>
+      {% endif %}
+      {% if registration %}
         {% for person in registration|dictsort:"full_name" %}
           {% if person.wwdc.pdf %}
             <p><b>{{ person.full_name }}</b>
@@ -92,7 +46,9 @@
               <br> No Card Available</p>
           {% endif %}
         {% endfor %}
-      {% endifequal %}
+      {% else %}
+      <p>No registrants.</p>
+      {% endif %}
     {% endfor %}
   </font>
 {% endblock %}
