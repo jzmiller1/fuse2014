@@ -43,6 +43,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'cemeteries',
     'bootstrap',
     'registration',
@@ -52,7 +54,7 @@ INSTALLED_APPS = (
     'rest_framework_gis',
 )
 
-
+SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/main'
 
