@@ -2,6 +2,16 @@ from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.contrib import admin
 from django.conf.urls.static import static
+from django.contrib.sitemaps import GenericSitemap
+from fuse2014.sitemaps import MainSitemap
+from cemeteries.models import Person, Cemetery
+
+sitemaps = {
+    'mainpage': MainSitemap,
+    'people': GenericSitemap({'queryset': Person.objects.all(), }, changefreq='monthly', priority=0.6),
+    'cemeteries': GenericSitemap({'queryset': Cemetery.objects.all(), }, changefreq='monthly', priority=0.6),
+}
+
 
 urlpatterns = patterns('',
     # Examples:
@@ -13,5 +23,9 @@ urlpatterns = patterns('',
     url(r'^api/v1/', include('cemeteries.api_urls', namespace='cemeteries_api')),
     url(r'^search/', include('haystack.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^sitemap\.xml$',
+        'django.contrib.sitemaps.views.sitemap',
+        {'sitemaps': sitemaps},
+        name='django.contrib.sitemaps.views.sitemap')
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
