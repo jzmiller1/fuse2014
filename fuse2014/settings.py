@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'django.contrib.gis',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'corsheaders',
     'cemeteries',
     'bootstrap',
     'registration',
@@ -55,11 +56,13 @@ INSTALLED_APPS = (
 )
 
 SITE_ID = 1
+CORS_ORIGIN_WHITELIST = ('geojson.io',)
 
 LOGIN_REDIRECT_URL = '/main'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
