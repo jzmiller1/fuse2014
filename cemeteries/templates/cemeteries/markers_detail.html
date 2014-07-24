@@ -9,7 +9,7 @@
     <div class="row">
       <div class="col-md-8">
         {% if image %}
-          <p><img src="{{ MEDIA_URL }}{{ image.image }}" width={{ image.width }} height={{ image.height }}></p>
+          <p><img src="{{ MEDIA_URL }}{{ image.image }}" width=100% height=auto></p>
           <br>
         {% else %}
           <p>No image exists for grave marker {{ marker.markerid }} at this time. </p>
