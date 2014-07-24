@@ -26,7 +26,7 @@ MEDIA_URL = '/media/'
 SECRET_KEY = '{}'.format(generate_key(40, 128))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -48,7 +48,6 @@ INSTALLED_APPS = (
     'corsheaders',
     'cemeteries',
     'bootstrap',
-    'registration',
     'fixture_media',
     'haystack',
     'rest_framework',
@@ -83,10 +82,10 @@ WSGI_APPLICATION = 'fuse2014.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': os.environ['FUSEDATABASE'],
-        'USER': os.environ['FUSEUSER'],
-        'PASSWORD': os.environ['FUSEPASSWORD'],
-        'HOST': 'localhost',
+        'NAME': 'theyburied',
+        'USER': 'cemuser',
+        'PASSWORD': 'cem!!2014',
+        'HOST': '107.170.3.46',
         'PORT': 5432,
     }
 }
