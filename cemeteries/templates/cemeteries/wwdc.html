@@ -5,7 +5,7 @@
 
 {% block content %}
   <font face="Comic Sans MS">
-    <h1>World War I Drafting</h1><br>
+    <h1>World War I Draft Registration</h1><br>
   </font>
   <font size="5" font face="Comic Sans MS">
     <p>During World War I there were three registrations. The first, on June 5, 1917, was for all men between the ages
@@ -13,7 +13,7 @@
       supplemental registration was held on August 24, 1918, for those becoming 21 years old after June 5, 1918. This
       was included in the second registration.) The third registration was held on September 12, 1918, for men age 18
       through 45.<br>
-      <a href="{% url 'cemeteries:WWDC_map' %}">Click to View World War I Draftees on Map</a></p><br>
+      <a href="{% url 'cemeteries:WWDC_map' %}">Click to View Those Eligible for World War I Draft Registration on Map</a></p><br>
     {% for registration in registrations %}
       {% if forloop.counter == 1 %}
         <h2>The following people were included in the first WWI registration on June 5, 1917 for men between the ages of
