@@ -17,7 +17,7 @@
       <div class="col-md-4">
         <p><b>Cemetery:</b> {{ person.markerid.cemetery }}<br>
           <b>Name:</b> {{ person.full_name }}<br>
-          <b>Marker Id:</b> {{ person.markerid.markerid }}<br>
+          <b>Marker Id:</b> <a href="/marker/{{ person.markerid.markerid }}">{{ person.markerid.markerid }}</a><br>
           <b>Gender:</b> {{ person.gender }}<br>
           <b>Veteran:</b> {{ person.veteran }}<br>
           <b>Born:</b> {{ person.a_birth }}<br>
@@ -45,4 +45,5 @@
    <a href="{{ index }}">Return to Person Index</a>
   {% endif %}
   </p>
+    <p align="center" style="font-size:25px"><a href="{% url 'cemeteries:personmap' pk=person.pk %}">View Person on Map</a></p>
 {% endblock %}

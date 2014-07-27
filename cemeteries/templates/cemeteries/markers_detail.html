@@ -17,7 +17,7 @@
       </div>
       <div class="col-md-4">
         <p><b>Family Name:</b> {{ marker.family_name|capfirst }}<br>
-          <b>Marker Id:</b> {{ marker.markerid }}<br>
+          <b>Marker Id:</b><a href="/marker/{{ marker.markerid }}">{{ marker.markerid }}</a><br>
           <b>Marker Condition:</b> {{ marker.condition }}<br>
           <b>Marker Readability:</b> {{ marker.readable }}<br>
           <b>Marker Epitaph:</b> {{ marker.epitaph }}<br>
@@ -29,7 +29,6 @@
     </div>
   </font>
   <p align="center" style="font-size:25px">
-
   {% url "cemeteries:symbology" as symbology %}
   {% if back == symbology %}
   <a href="{{ back }}">Return to Symbology</a>
@@ -42,5 +41,5 @@
    <a href="{{ people }}">Return to Person Index</a>
   {% endif %}
   </p>
-
+<p align="center" style="font-size:25px"><a href="{% url 'cemeteries:markermap' pk=marker.markerid %}">View Marker on Map</a></p>
 {% endblock %}

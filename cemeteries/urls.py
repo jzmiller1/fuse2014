@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from .views import MainView, CemeteryListView, CemeteryDetailView, MarkerListView,MarkerDetailView, WWDCView,WWDCMapView
-from .views import PersonListView, PersonDetailView,AboutView, SymbologyView, PeopleView, MarkerMapView,PersonMapView, SymbolMapView
+from .views import PersonListView, PersonDetailView,AboutView, SymbologyView, PeopleView, MarkerMapView,PersonMapView, SymbolMapView, IndividualMarkerMapView, IndividualPersonMapView
 from .models import Cemetery, Marker, Person, Symbology
 #from django.contrib.auth.decorators import login_required
 
@@ -26,4 +26,6 @@ urlpatterns = patterns('',
     url(r'^map_person/$', PersonMapView.as_view(), name='personmap'),
     url(r'^map_wwdc/$', WWDCMapView.as_view(), name='WWDC_map'),
     url(r'^symbolmap/(?P<pk>\d+)/$', SymbolMapView.as_view(), name='symbolmap'),
+    url(r'^markermap/(?P<pk>\d+)/$', IndividualMarkerMapView.as_view(), name='markermap'),
+    url(r'^personmap/(?P<pk>\d+)/$', IndividualPersonMapView.as_view(), name='personmap'),
 )

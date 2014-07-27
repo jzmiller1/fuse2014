@@ -147,6 +147,25 @@ class SymbolMapView(generic.TemplateView):
         context['symbol'] = symbol.symbology
         return context
 
+class IndividualMarkerMapView(generic.TemplateView):
+    template_name = "cemeteries/symbol_map.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(IndividualMarkerMapView, self).get_context_data(**kwargs)
+        marker = Marker.objects.filter(pk=kwargs['pk']).first()
+        context['markers'] = "/api/v1/markers?markerid=" + "{}".format(marker.markerid)
+        return context
+
+
+class IndividualPersonMapView(generic.TemplateView):
+    template_name = "cemeteries/individual_person_map.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(IndividualPersonMapView, self).get_context_data(**kwargs)
+        person = Person.objects.filter(pk=kwargs['pk']).first()
+        context['people'] = "/api/v1/people?id=" + "{}".format(person.pk)
+        return context
+
 
 class WWDCView(generic.TemplateView):
     template_name = "cemeteries/wwdc.html"
