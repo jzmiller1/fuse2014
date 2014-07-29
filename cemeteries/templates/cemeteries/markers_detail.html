@@ -23,7 +23,7 @@
           <b>Marker Epitaph:</b> {{ marker.epitaph }}<br>
           <b>Marker Cemetery</b> : {{ marker.cemetery }}</p><br>
         {% for person in people %}
-          <a href="/person/{{ person.pk }}">{{ person.full_name }}</a><br>
+          <a href="/person/{{ person.pk }}">{{ person.full_name }} {{ person.b_year }}-{{ person.d_year }}</a><br>
         {% endfor %}
       </div>
     </div>
